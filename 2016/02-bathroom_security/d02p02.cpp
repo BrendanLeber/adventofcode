@@ -1,110 +1,77 @@
-#include <cassert>
-#include <cmath>
+#include <array>
 #include <cstdlib>
 #include <iostream>
-#include <set>
 #include <string>
 #include <utility>
 
+using Position = std::pair<size_t, size_t>;
 
-// template <typename T, size_t N>
-// struct Vector
-// {
-// 	size_t sz;
-// 	T data[N];
+constexpr size_t grid_size = 7;
 
-// 	Vector() : sz(N) {
-// 		for (size_t i = 0; i < N; ++i) {
-// 			data[i] = T();
-// 		}
-// 	}
-// };
+const std::array<char, grid_size * grid_size> keypad{{0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, '1', 0, 0, 0,
+    0, 0, '2', '3', '4', 0, 0,
+    0, '5', '6', '7', '8', '9', 0,
+    0, 0, 'A', 'B', 'C', 0, 0,
+    0, 0, 0, 'D', 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0}};
 
+size_t pos_to_offset(Position pos);
+Position update_pos(char move, Position pos);
 
-// using Position = Vector<int, 2>;
-
-
-using Position = std::pair<int, int>;
-using Past_Positions = std::set<Position>;
-
-
-int taxicab_distance(Position p, Position q)
+size_t pos_to_offset(Position pos)
 {
-    return std::abs(p.first - q.first) + std::abs(p.second - q.second);
+    return pos.second * grid_size + pos.first;
 }
 
-
-template <int L, int U>
-int wrap(int x)
+Position update_pos(char move, Position pos)
 {
-    auto range = U - L + 1;
-    if (x < L) {
-        x += range * ((L - x) / range + 1);
+    Position new_pos{pos};
+
+    switch (move) {
+    case 'U':
+        new_pos.second--;
+        break;
+
+    case 'D':
+        new_pos.second++;
+        break;
+
+    case 'L':
+        new_pos.first--;
+        break;
+
+    case 'R':
+        new_pos.first++;
+        break;
+
+    default:
+        std::cerr << "invalid move '" << move << "'\n";
+        std::exit(EXIT_FAILURE);
     }
-    return L + (x - L) % range;
+
+    return new_pos;
 }
 
-
-int main(int, char**)
+int main(int /*argc*/, char** /*argv*/)
 {
-    Past_Positions past;
-    auto pos = std::make_pair(0, 0);
-    int heading = 0;  // 0 = North, 1 = East, 2 = South, 3 = West
+    // pos.first = col  pos.second = row
+    auto pos = std::make_pair(1, 3); // start at '5'
 
-    char turn, bogus;
-    int moves;
-    while (std::cin >> turn >> moves) {
-        std::cin >> bogus;  // eat the extra ',' after each turn
-
-        assert(turn == 'R' || turn == 'L');
-
-        // std::cout << "pos (" << pos.first << ", " << pos.second << ")  heading " << heading;
-        // std::cout << "  turn " << turn << "  moves " << moves;
-
-        // turn left or right
-        if (turn == 'L') {
-            heading = wrap<0, 3>(heading - 1);
-        }
-        else {
-            heading = wrap<0, 3>(heading + 1);
-        }
-
-        for (int move = 0; move < moves; ++move) {
-            switch (heading) {
-            case 0:
-                pos.second += 1;
-                break;
-
-            case 1:
-                pos.first += 1;
-                break;
-
-            case 2:
-                pos.second -= 1;
-                break;
-
-            case 3:
-                pos.first -= 1;
-                break;
-            }
-
-            auto found = past.insert(pos);
-            if (!found.second) {
-                std::cout
-                    << "repeated pos (" << pos.first << ", " << pos.second << ")\n"
-                    << "distance " << taxicab_distance(std::make_pair(0, 0), pos)
-                    << std::endl;
-                return 0;
+    std::string moves, code;
+    while (std::cin >> moves) {
+        for (auto move : moves) {
+            auto new_pos = update_pos(move, pos);
+            auto key = keypad[pos_to_offset(new_pos)];
+            if (key != '\0') {
+                pos = new_pos;
             }
         }
 
-        // std::cout << "  pos (" << pos.first << ", " << pos.second << ")  heading " << heading << std::endl;
+        code.push_back(keypad[pos_to_offset(pos)]);
     }
 
-    std::cout
-        << "final pos (" << pos.first << ", " << pos.second << ")\n"
-        << "distance " << taxicab_distance(std::make_pair(0, 0), pos)
-        << std::endl;
+    std::cout << code << '\n';
 
-    return 0;
+    return EXIT_SUCCESS;
 }
