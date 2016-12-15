@@ -1,5 +1,17 @@
-day_01: day_01.cpp
-	clang++ -std=c++14 -pedantic -Wall -DTEST -o day_01 day_01.cpp
+PUZZLE=d02p01
+CFLAGS=-std=c++14 -stdlib=libstdc++ -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
 
-tidy:
-	clang-tidy day_01.cpp -checks=* -- -std=c++14
+compile: $(PUZZLE).cpp
+	clang++ $(CFLAGS) -o $(PUZZLE) $(PUZZLE).cpp
+
+test: compile
+	cat input | ./$(PUZZLE)
+
+clean:
+	rm $(PUZZLE)
+
+check:
+	clang-tidy $(PUZZLE).cpp -config='' -- $(CFLAGS)
+
+format:
+	clang-format -i -style=file $(PUZZLE).cpp
