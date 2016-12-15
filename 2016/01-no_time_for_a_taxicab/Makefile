@@ -1,5 +1,5 @@
-PUZZLE=d01p01
-CFLAGS=-std=c++14 -stdlib=libstdc++ -pedantic -Wall -g -O0
+PUZZLE=d01p02
+CFLAGS=-std=c++14 -stdlib=libstdc++ -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
 
 compile: $(PUZZLE).cpp
 	clang++ $(CFLAGS) -o $(PUZZLE) $(PUZZLE).cpp

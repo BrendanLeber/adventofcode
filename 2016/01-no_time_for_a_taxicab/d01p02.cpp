@@ -1,8 +1,10 @@
 #include <cstdlib>
 #include <iostream>
+#include <set>
 #include <utility>
 
 using Position = std::pair<int, int>;
+using Past_Positions = std::set<Position>;
 
 int taxicab_distance(Position p, Position q);
 
@@ -23,7 +25,7 @@ int wrap(int x)
 
 int main(int /*argc*/, char** /*argv*/)
 {
-    // start at the origin and facing north
+    Past_Positions past;
     auto pos = std::make_pair(0, 0);
     int heading = 0; // 0 = North, 1 = East, 2 = South, 3 = West
 
@@ -42,22 +44,30 @@ int main(int /*argc*/, char** /*argv*/)
             return -1;
         }
 
-        switch (heading) {
-        case 0:
-            pos.second += moves;
-            break;
+        for (int move = 0; move < moves; ++move) {
+            switch (heading) {
+            case 0:
+                pos.second += 1;
+                break;
 
-        case 1:
-            pos.first += moves;
-            break;
+            case 1:
+                pos.first += 1;
+                break;
 
-        case 2:
-            pos.second -= moves;
-            break;
+            case 2:
+                pos.second -= 1;
+                break;
 
-        case 3:
-            pos.first -= moves;
-            break;
+            case 3:
+                pos.first -= 1;
+                break;
+            }
+
+            auto found = past.insert(pos);
+            if (!found.second) {
+                std::cout << taxicab_distance(std::make_pair(0, 0), pos) << '\n';
+                return 0;
+            }
         }
     }
 
