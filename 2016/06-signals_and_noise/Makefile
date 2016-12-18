@@ -1,4 +1,4 @@
-PUZZLE=d06p01
+PUZZLE=d06p02
 CFLAGS=-std=c++14 -stdlib=libstdc++ -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
 
 compile: $(PUZZLE).cpp
