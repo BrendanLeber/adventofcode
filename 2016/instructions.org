@@ -252,32 +252,118 @@ UUUUD
 
 * Day 5: How About a Nice Game of Chess?
 
-  You are faced with a security door designed by Easter Bunny
-  engineers that seem to have acquired most of their security
-  knowledge by watching [[https://en.wikipedia.org/wiki/Hackers_(film)][hacking movies]].
+** Part One
 
-  The *eight-character password* for the door is generated one character
-  at a time by finding the [[https://en.wikipedia.org/wiki/MD5][MD5]] hash of some Door ID (your puzzle
-  input) and an increasing integer index (starting with =0=).
+   You are faced with a security door designed by Easter Bunny
+   engineers that seem to have acquired most of their security
+   knowledge by watching [[https://en.wikipedia.org/wiki/Hackers_(film)][hacking movies]].
 
-  A hash indicates the *next character* in the password if its
-  [[https://en.wikipedia.org/wiki/Hexadecimal][hexadecimal]] representation starts with *five zeroes*.  If it does, the
-  sixth character in the hash is the next character of the password.
+   The *eight-character password* for the door is generated one
+   character at a time by finding the [[https://en.wikipedia.org/wiki/MD5][MD5]] hash of some Door ID (your
+   puzzle input) and an increasing integer index (starting with =0=).
 
-  For example, if the Door ID is =abc=:
+   A hash indicates the *next character* in the password if its
+   [[https://en.wikipedia.org/wiki/Hexadecimal][hexadecimal]] representation starts with *five zeroes*.  If it does,
+   the sixth character in the hash is the next character of the
+   password.
 
-  - The first index which produces a hash that starts with five zeroes
-    is =3231929=, which we find by hashing =abc3231929=; the sixth
-    character of the hash, and thus the first character of the
-    password, is =1=.
-  - =5017308= produces the next interesting hash, which starts with
-    =000008f82...=, so the second character of the password is =8=.
-  - The third time a hash starts with five zeroes is for =abc5278568=,
-    discovering the character =f=.
+   For example, if the Door ID is =abc=:
 
-  In this example, after continuing this search a total of eight
-  times, the password is =18f47a30=.
+   - The first index which produces a hash that starts with five zeroes
+     is =3231929=, which we find by hashing =abc3231929=; the sixth
+     character of the hash, and thus the first character of the
+     password, is =1=.
+   - =5017308= produces the next interesting hash, which starts with
+     =000008f82...=, so the second character of the password is =8=.
+   - The third time a hash starts with five zeroes is for =abc5278568=,
+     discovering the character =f=.
 
-  Given the actual Door ID, *what is the password*?
+   In this example, after continuing this search a total of eight
+   times, the password is =18f47a30=.
 
-  Your puzzle input is =ffykfhsq=.
+   Given the actual Door ID, *what is the password*?
+
+   Your puzzle input is =ffykfhsq=.
+
+   Your puzzle answer was ~c6697b55~.
+
+** Part Two
+
+   As the door slides open, you are presented with a second door that
+   uses a slightly more inspired security mechanism.  Clearly
+   unimpressed by the last version (in what movie is the password
+   decrypted *in order*?!), the Easter Bunny engineers have worked out
+   [[https://www.youtube.com/watch?v=NHWjlCaIrQo&t=25][a better solution]].
+
+   Instead of simply filling in the password from left to right, the
+   hash now also indicates the *position* within the password to fill.
+   You still look for hashes that begin with five zeroes; however,
+   now, the *sixth* character represents the *position* (=0= - =7=),
+   and the *seventh* character is the character to put in that position.
+
+   A hash result of =000001f= means that =f= is the *second* character
+   in the password.  Use only the *first result* for each position, and
+   ignore invalid positions.
+
+   For example, if the Door ID is =abc=:
+
+   - The first interesting hash is from =abc3231929=, which produces
+     =0000015...=; so, =5= goes in position =1=: =_5______=.
+   - In the previous method, =5017308= produced an interesting hash;
+     however, it is ignored, because it specifies an invalid position
+     (=8=).
+   - The second interesting hash is at index =5357525=, which produces
+     =000004e...=; so, =e= goes in position =4=: =_5__e___=.
+   - You almost choke on your popcorn as the final character falls
+     into place, producing the password =05ace8e3=.
+
+   Given the actual Door ID and this new method, *what is the password*?
+   Be extra proud of your solution if it uses a cinematic "decrypting"
+   animation.
+
+   Your puzzle input is still =ffykfhsq=.
+
+   Your puzzle answer was ~8c35d1ab~.
+
+* Day 6: Signals and Noise
+
+** Part One
+
+   Something is jamming your communications with Santa.  Fortunately,
+   your signal is only partially jammed, and protocol in situations
+   like this is to switch to a simple [[https://en.wikipedia.org/wiki/Repetition_code][repetition code]] to get the
+   message through.
+
+   In this model, the same message is sent repeatedly.  You've
+   recorded the repeating message signal (your puzzle input), but the
+   data seems quite corrupted - almost too badly to recover.  *Almost.*
+
+   All you need to do is figure out which character is most frequent
+   for each position.  For example, suppose you had recorded the
+   following messages:
+
+#+BEGIN_EXAMPLE
+eedadn
+drvtee
+eandsr
+raavrd
+atevrs
+tsrnev
+sdttsa
+rasrtv
+nssdts
+ntnada
+svetve
+tesnvt
+vntsnd
+vrdear
+dvrsen
+enarar
+#+END_EXAMPLE
+
+   The most common character in the first column is =e=; in the
+   second, =a=; in the third, =s=, and so on.  Combining these
+   characters returns the error-corrected message, =easter=.
+
+   Given the recording in your puzzle input, *what is the
+   error-corrected version* of the message being sent?

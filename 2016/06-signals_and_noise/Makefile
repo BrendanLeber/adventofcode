@@ -1,17 +1,14 @@
-PUZZLE=d05p02
+PUZZLE=d06p01
 CFLAGS=-std=c++14 -stdlib=libstdc++ -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
 
-compile: $(PUZZLE).cpp md5.o
-	clang++ $(CFLAGS) -o $(PUZZLE) $(PUZZLE).cpp md5.o
+compile: $(PUZZLE).cpp
+	clang++ $(CFLAGS) -o $(PUZZLE) $(PUZZLE).cpp
 
-md5.o: md5.hpp md5.cpp
-	clang++ $(CFLAGS) -c md5.cpp
-
-test: $(PUZZLE)
-	./$(PUZZLE) abc
+test: compile
+	cat input | ./$(PUZZLE)
 
 clean:
-	rm $(PUZZLE) md5.o
+	rm $(PUZZLE)
 
 check:
 	clang-tidy $(PUZZLE).cpp -config='' -- $(CFLAGS)
