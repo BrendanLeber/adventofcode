@@ -40,8 +40,6 @@
 
    *How many blocks away* is Easter Bunny HQ?
 
-   Your puzzle answer was ~242~.
-
 ** Part Two
 
    Then, you notice the instructions continue on the back of the
@@ -52,8 +50,6 @@
    location you visit twice is =4= blocks away, due East.
 
    How many blocks away is the first location you visit twice?
-
-   Your puzzle answer was ~150~.
 
 * Day 2: Bathroom Security
 
@@ -110,8 +106,6 @@ UUUUD
    Your puzzle input is the instructions from the document you found
    at the front desk.  What is the *bathroom code*?
 
-   Your puzzle answer was ~18843~.
-
 ** Part Two
 
    You finally arrive at the bathroom (it's a several minute walk from
@@ -145,8 +139,6 @@ UUUUD
    Using the same instructions in your puzzle input, what is the
    correct *bathroom code*?
 
-   Your puzzle answer was ~67BB9~.
-
 * Day 3: Squares With Three Sides
 
 ** Part One
@@ -169,8 +161,6 @@ UUUUD
    In your puzzle input, *how many* of the listed triangles are
    possible?
 
-   Your puzzle answer was ~869~.
-
 ** Part Two
 
    Now that you've helpfully marked up their design documents, it
@@ -192,8 +182,6 @@ UUUUD
 
    In your puzzle input, and instead reading by columns, how many of
    the listed triangles are *possible*?
-
-   Your puzzle answer was ~1544~.
 
 * Day 4: Security Through Obscurity
 
@@ -226,8 +214,6 @@ UUUUD
 
    What is the *sum of the sector IDs of the real rooms*?
 
-   Your puzzle answer was ~185371~.
-
 ** Part Two
 
    With all the decoy data out of the way, it's time to decrypt this
@@ -247,8 +233,6 @@ UUUUD
 
    *What is the sector ID* of the room where North Pole objects are
    stored?
-
-   Your puzzle answer was ~984~.
 
 * Day 5: How About a Nice Game of Chess?
 
@@ -283,10 +267,6 @@ UUUUD
 
    Given the actual Door ID, *what is the password*?
 
-   Your puzzle input is =ffykfhsq=.
-
-   Your puzzle answer was ~c6697b55~.
-
 ** Part Two
 
    As the door slides open, you are presented with a second door that
@@ -320,10 +300,6 @@ UUUUD
    Given the actual Door ID and this new method, *what is the password*?
    Be extra proud of your solution if it uses a cinematic "decrypting"
    animation.
-
-   Your puzzle input is still =ffykfhsq=.
-
-   Your puzzle answer was ~8c35d1ab~.
 
 * Day 6: Signals and Noise
 
@@ -368,8 +344,6 @@ enarar
    Given the recording in your puzzle input, *what is the
    error-corrected version* of the message being sent?
 
-   Your puzzle answer was ~kjxfwkdh~.
-
 ** Part Two
 
    Of course, that *would* be the message -- if you hadn't agreed to use
@@ -390,8 +364,6 @@ enarar
    Given the recording in your puzzle input and this new decoding
    methodology, *what is the original message* that Santa is trying to
    send?
-
-   Your puzzle answer was ~xrwcsnps~.
 
 * Day 7: Internet Protocol Version 7
 
@@ -420,4 +392,3 @@ enarar
      brackets, even though it's within a larger string).
 
    *How many IPs* in your puzzle input support TLS?
-
