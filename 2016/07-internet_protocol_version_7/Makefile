@@ -1,17 +1,18 @@
-PUZZLE=d07p01
 CFLAGS=-std=c++14 -stdlib=libstdc++ -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
 
-compile: $(PUZZLE).cpp
-	clang++ $(CFLAGS) -o $(PUZZLE) $(PUZZLE).cpp
+ipv7: ipv7.cpp
+	clang++ $(CFLAGS) -o ipv7 ipv7.cpp
 
-test: compile
-	./$(PUZZLE) test.input
+
+test: ipv7
+	./ipv7 test02.input
+
 
 clean:
-	rm $(PUZZLE)
+	rm ipv7 d07p02
 
 check:
-	clang-tidy $(PUZZLE).cpp -config='' -- $(CFLAGS)
+	clang-tidy ipv7.cpp -config='' -- $(CFLAGS)
 
 format:
-	clang-format -i -style=file $(PUZZLE).cpp
+	clang-format -i -style=file ipv7.cpp
