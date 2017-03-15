@@ -6,11 +6,11 @@ eic: eic.cpp
 
 test: eic
 	echo "ADVENT" | ./eic
-	# echo "A(1x5)BC" | ./eic
-	# echo "(3x3)XYZ" | ./eic
-	# echo "A(2x2)BCD(2x2)EFG" | ./eic
-	# echo "(6x1)(1x3)A" | ./eic
-	# echo "X(8x2)(3x3)ABCY" | ./eic
+	echo "A(1x5)BC" | ./eic
+	echo "(3x3)XYZ" | ./eic
+	echo "A(2x2)BCD(2x2)EFG" | ./eic
+	echo "(6x1)(1x3)A" | ./eic
+	echo "X(8x2)(3x3)ABCY" | ./eic
 
 run: eic
 	cat input | ./eic
