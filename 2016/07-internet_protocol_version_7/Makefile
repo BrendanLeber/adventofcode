@@ -9,7 +9,7 @@ test: ipv7
 
 
 clean:
-	rm ipv7 d07p02
+	rm ipv7
 
 check:
 	clang-tidy ipv7.cpp -config='' -- $(CFLAGS)
