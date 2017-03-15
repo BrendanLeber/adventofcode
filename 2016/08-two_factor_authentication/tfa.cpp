@@ -37,7 +37,7 @@ struct Bitmap
 		for (size_t row = 0; row < Rows; ++row) {
 			for (size_t col = 0; col < Cols; ++col) {
 				auto pixel = bits[row * Cols + col];
-				std::cout << (pixel ? '#' : '.');
+				std::cout << (pixel ? '#' : ' ');
 			}
 			std::cout << '\n';
 		}
@@ -49,7 +49,7 @@ struct Bitmap
 		// std::cout << "\n+ rotate_row row " << row << " count " << count << '\n';
 
 		const size_t row_off = row * Cols;
-		
+
 		for (size_t iteration = 0; iteration < count; ++iteration) {
 			// save the bit from the last column
 			auto saved_bit = bits[row_off + Cols - 1];
@@ -98,6 +98,8 @@ struct Bitmap
 template <size_t R, size_t C>
 void process_command(std::string cmd, Bitmap<R, C>& bmp)
 {
+	// std::cout << '\n' << cmd << '\n';
+
 	if (cmd.find("rect ") == 0) {
 		size_t width = static_cast<size_t>(std::stoi(cmd.substr(5)));
 		auto pos_x = cmd.find('x');
@@ -119,6 +121,8 @@ void process_command(std::string cmd, Bitmap<R, C>& bmp)
 	else {
 		throw std::runtime_error("invalid command");
 	}
+
+	// bmp.draw();
 }
 
 
@@ -155,12 +159,12 @@ int main(int argc, char** argv)
 
     for (auto cmd : input) {
 	    process_command(cmd, bmp);
-	    // bmp.draw();
     }
 
     auto pixels_lit = bmp.count_lit();
 
-    std::cout << "pixels_lit " << pixels_lit << '\n';
+    std::cout << "pixels_lit " << pixels_lit << "\n\n";
+    bmp.draw();
 
     return EXIT_SUCCESS;
 }
