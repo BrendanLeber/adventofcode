@@ -31,7 +31,7 @@ size_t decompress(std::string input)
 	size_t length = 0;
 	std::string::size_type start = 0, end = 0;
 
-	while (start <= input.length()) {
+	while (start < input.length()) {
 		if (input[start] != '(') {
 			end = input.find('(', start);
 			if (end == std::string::npos) {
@@ -50,7 +50,9 @@ size_t decompress(std::string input)
 			size_t num_chars, num_repeat;
 			std::tie(num_chars, num_repeat) = parse_marker(marker);
 
-			length += num_repeat * num_chars;
+			auto sub = input.substr(start + marker.length(), num_chars);
+
+			length += num_repeat * decompress(sub);
 
 			start = end + num_chars + 1;
 		}
