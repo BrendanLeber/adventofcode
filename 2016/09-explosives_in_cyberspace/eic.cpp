@@ -1,51 +1,68 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
+#include <tuple>
 #include <utility>
 #include <vector>
 
 
-std::string decompress(std::string input);
+size_t decompress(std::string input);
+size_t decompress2(std::string input);
+std::tuple<size_t, size_t> parse_marker(std::string marker);
 
 
-std::string decompress(std::string input)
+std::tuple<size_t, size_t> parse_marker(std::string marker)
 {
-	std::string output;
+	auto c_end = marker.find('x');
+	auto chars = marker.substr(1, c_end - 1);
+	auto num_chars = static_cast<size_t>(std::stoi(chars));
 
-	while (!input.empty()) {
-		// std::cerr << "string " << input << '\n';
+	auto r_start = c_end + 1;
+	auto r_end = marker.find(')');
+	auto repeat = marker.substr(r_start, r_end - r_start);
+	auto num_repeat = static_cast<size_t>(std::stoi(repeat));
 
-		if (input[0] != '(') {
-			auto end = input.find('(');
+	return std::make_tuple(num_chars, num_repeat);
+}
 
-			auto segment = input.substr(0, end);
-			// std::cerr << "segment " << segment << '\n';
 
-			output.append(segment);
-			input.erase(0, end);
+size_t decompress(std::string input)
+{
+	size_t length = 0;
+	std::string::size_type start = 0, end = 0;
+
+	while (start <= input.length()) {
+		if (input[start] != '(') {
+			end = input.find('(', start);
+			if (end == std::string::npos) {
+				length += input.length() - start;
+				return length;
+			}
+			else {
+				length += end - start;
+				start = end;
+			}
 		}
 		else {
-			auto end = input.find(')');
-			auto marker = input.substr(1, end - 1);
-			input.erase(0, end + 1);
+			end = input.find(')', start);
+			auto marker = input.substr(start, end - start + 1);
 
-			// std::cerr << "marker " << marker << '\n';
+			size_t num_chars, num_repeat;
+			std::tie(num_chars, num_repeat) = parse_marker(marker);
 
-			auto num_chars = std::stoi(marker);
-			end = marker.find('x');
-			auto num_times = std::stoi(marker.substr(end + 1));
+			length += num_repeat * num_chars;
 
-			auto repeat = input.substr(0, num_chars);
-			input.erase(0, num_chars);
-
-			// std::cerr << "chars " << num_chars << " times " << num_times << " repeat " << repeat << '\n';
-
-			for (int i = 0; i < num_times; ++i)
-				output.append(repeat);
+			start = end + num_chars + 1;
 		}
 	}
 
-	return output;
+	return length;
+}
+
+
+size_t decompress2(std::string /*input*/)
+{
+	return 0;
 }
 
 
@@ -54,13 +71,9 @@ int main(int, char**)
 	std::string input;
 	std::getline(std::cin, input);
 
-	auto output = decompress(input);
+	auto length = decompress(input);
 
-	std::cerr
-		<< "input " << input << '\n'
-		<< "output " << output << '\n';
-
-	std::cout << "decompressed_length " << output.length() << "\n";
+	std::cout << length << "\n";
 
 	return EXIT_SUCCESS;
 }
