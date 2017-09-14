@@ -1,7 +1,9 @@
 #include <algorithm>
+#include <exception>
 #include <iostream>
 #include <map>
 #include <memory>
+#include <regex>
 #include <sstream>
 #include <string>
 #include <tuple>
@@ -9,154 +11,235 @@
 #include <vector>
 
 
-enum class Object_Type { BOT, OUTPUT };
+enum class Object_Type { UNKNOWN, BOT, OUTPUT };
+
+using Strings = std::vector<std::string>;
 
 
-struct Object
+struct Chip_Bot
 {
-	int id;
-	Object_Type type;
+	int chip;
+	int bot;
 
-	Object(Object_Type a_type, int an_id) : type(a_type), id(an_id) {}
-
-	Object_Type get_type() const { return type; }
-	int get_id() const { return id; }
+	Chip_Bot() : chip(-1), bot(-1) {}
+	Chip_Bot(int c, int b) : chip(c), bot(b) {}
 };
 
+using Inputs = std::vector<Chip_Bot>;
 
-struct Bot : public Object
+
+struct Destination
+{
+	Object_Type type;
+	int dest;
+
+	Destination() : type(Object_Type::UNKNOWN), dest(-1) {}
+	Destination(Object_Type t, int d) : type(t), dest(d) {}
+};
+
+struct Rule
+{
+	Destination low;
+	Destination high;
+
+	Rule() : low(), high() {}
+	Rule(Destination l, Destination h) : low(l), high(h) {}
+};
+
+using Rules = std::map<int, Rule>;
+
+
+struct Bot
 {
 	int low;
 	int high;
-	std::shared_ptr<Object> give_low;
-	std::shared_ptr<Object> give_high;
 
-	Bot(int an_id) : Object(Object_Type::BOT, id), low(-1), high(-1), give_low(nullptr), give_high(nullptr) {}
+	Bot() : low(-1), high(-1) {}
+	Bot(int l, int h) : low(l), high(h) {}
+};
 
-	bool have_both() const { return low != -1 && high != -1; }
+using Bots = std::map<int, Bot>;
 
-	bool accept(int chip)
-	{
-		if (low == -1) {
-			low = chip;
+
+using Output = std::vector<int>;
+using Outputs = std::map<int, Output>;
+
+
+Bots bots;
+Inputs inputs;
+Outputs outputs;
+Rules rules;
+
+
+void bot_give(int id, int chip);
+void initialize_bots();
+void initialize_outputs();
+void output_give(int id, int chip);
+void parse_inputs(const Strings& lines);
+void parse_rules(const Strings& lines);
+
+
+void bot_give(int id, int chip)
+{
+	std::cout << "  giving chip " << chip << " to bot " << id << '\n';
+
+	auto& bot = bots[id];
+
+	// give chip to this bot
+	if (bot.low == -1) {
+		bot.low = chip;
+	}
+	else {
+		bot.high = chip;
+		if (bot.high < bot.low) {
+			std::swap(bot.high, bot.low);
 		}
-		else if (high == -1) {
-			high = chip;
-			if (high < low) {
-				std::swap(low, high);
-			}
+	}
+
+	// do we need to distribute more chips
+	if ((bot.low != -1) && (bot.high != -1)) {
+		auto rule = rules[id];
+
+		std::cout
+			<< "  bot " << id
+			<< " send chip " << bot.low
+			<< " to " << (rule.low.type == Object_Type::BOT ? "bot " : "output ") << rule.low.dest
+			<< " and chip " << bot.high
+			<< " to " << (rule.high.type == Object_Type::BOT ? "bot " : "output ") << rule.high.dest
+			<< '\n';
+		
+		// hand off the lower chip
+		if (rule.low.type == Object_Type::BOT) {
+			bot_give(rule.low.dest, bot.low);
 		}
 		else {
-			throw std::runtime_error("bot has hands full!");
+			output_give(rule.low.dest, bot.low);
 		}
 
-		return have_both();
-	}
-};
+		bot.low = -1;
 
-
-struct Output : public Object
-{
-	Output(int an_id) : Object(Object_Type::OUTPUT, id) {}
-};
-
-
-using Strings = std::vector<std::string>;
-using Chip_Bot = std::pair<int, int>;
-using Inputs = std::vector<Chip_Bot>;
-using Object_Ptr = std::shared_ptr<Object>;
-using Object_Key = std::pair<Object_Type, int>;
-using Objects = std::map<Object_Key, Object_Ptr>;
-
-
-Inputs parse_inputs(const Strings& lines);
-Objects parse_objects(const Strings& lines);
-Strings split(const std::string &s, char delim);
-
-
-Inputs parse_inputs(const Strings& lines)
-{
-	const std::string value_marker { "value" };
-	const std::string bot_marker { "bot" };
-	Inputs inputs;
-
-	for (const auto& line : lines) {
-		if (line.find(value_marker) == 0) {
-			auto chip = std::stoi(line.substr(value_marker.length()));
-			auto pos = line.find(bot_marker);
-			auto bot_pos = pos + bot_marker.length();
-			auto bot = std::stoi(line.substr(bot_pos));
-			inputs.push_back(std::move(std::make_pair(chip, bot)));
+		// hand off the higher chip
+		if (rule.high.type == Object_Type::BOT) {
+			bot_give(rule.high.dest, bot.high);
 		}
+		else {
+			output_give(rule.high.dest, bot.high);
+		}
+
+		bot.high = -1;
 	}
 
-	return inputs;
+	std::cout << "    bot " << id << " low " << bot.low << " high " << bot.high << '\n';
 }
 
 
-Objects parse_objects(const Strings& lines)
+void initialize_bots()
 {
-	const std::string bot_marker { "bot" };
-	const std::string output_marker { "output" };
+	for (const auto& rule : rules) {
+		auto it = bots.lower_bound(rule.first);
+		if (it == std::end(bots) || rule.first < it->first) {
+			bots.insert(it, std::make_pair(rule.first, Bot()));
+		}
 
-	// 0   1    2     3   4  5        6    7   8    9  10       11
-	// bot <id> gives low to <object> <id> and high to <object> <id>
-
-	Objects objects;
-	for (const auto& line : lines) {
-		if (line.find(bot_marker) != 0)
-			continue;
-
-		auto parts = split(line, ' ');
-
-		Object_Key low_id
-			= std::make_pair(
-				(parts[5] == output_marker) ? Object_Type::OUTPUT : Object_Type::BOT,
-				std::stoi(parts[6]));
-		if (objects.find(low_id) == std::end(objects)) {
-			if (low_id.first == Object_Type::OUTPUT) {
-				objects[low_id] = std::make_shared<Output>(low_id.second);
-			}
-			else {
-				objects[low_id] = std::make_shared<Bot>(low_id.second);
+		auto low = rule.second.low;
+		if (low.type == Object_Type::BOT) {
+			auto it = bots.lower_bound(low.dest);
+			if (it == std::end(bots) || low.dest < it->first) {
+				bots.insert(it, std::make_pair(low.dest, Bot()));
 			}
 		}
 
-		Object_Key high_id
-			= std::make_pair(
-				(parts[10] == output_marker) ? Object_Type::OUTPUT : Object_Type::BOT,
-				std::stoi(parts[11]));
-		if (objects.find(high_id) == std::end(objects)) {
-			if (high_id.first == Object_Type::OUTPUT) {
-				objects[high_id] = std::make_shared<Output>(high_id.second);
-			}
-			else {
-				objects[high_id] = std::make_shared<Bot>(high_id.second);
+		auto high = rule.second.high;
+		if (high.type == Object_Type::BOT) {
+			auto it = bots.lower_bound(high.dest);
+			if (it == std::end(bots) || high.dest < it->first) {
+				bots.insert(it, std::make_pair(high.dest, Bot()));
 			}
 		}
-
-		auto bot_id = std::make_pair(Object_Type::BOT, std::stoi(parts[1]));
-		if (objects.find(bot_id) == std::end(objects)) {
-			objects[bot_id] = std::make_shared<Bot>(bot_id.second);
-		}
-		auto bot = std::static_pointer_cast<Bot>(objects[bot_id]);
-		bot->give_low = objects[low_id];
-		bot->give_high = objects[high_id];
 	}
 
-	return objects;
+	for (const auto& input : inputs) {
+		auto it = bots.lower_bound(input.bot);
+		if (it == std::end(bots) || input.bot < it->first) {
+			bots.insert(it, std::make_pair(input.bot, Bot()));
+		}
+	}
 }
 
 
-Strings split(const std::string &s, char delim)
+void initialize_outputs()
 {
-	std::stringstream ss(s);
-	std::string item;
-	Strings elems;
-	while (std::getline(ss, item, delim)) {
-		elems.push_back(std::move(item));
+	for (const auto& rule : rules) {
+		auto low = rule.second.low;
+		if (low.type == Object_Type::OUTPUT) {
+			auto it = outputs.lower_bound(low.dest);
+			if (it == std::end(outputs) || low.dest < it->first) {
+				outputs.insert(it, std::make_pair(low.dest, Output()));
+			}
+		}
+
+		auto high = rule.second.high;
+		if (high.type == Object_Type::OUTPUT) {
+			auto it = outputs.lower_bound(high.dest);
+			if (it == std::end(outputs) || high.dest < it->first) {
+				outputs.insert(it, std::make_pair(high.dest, Output()));
+			}
+		}
 	}
-	return elems;
+}
+
+
+void output_give(int id, int chip)
+{
+	std::cout << "  giving chip " << chip << " to output " << id << '\n';
+	outputs[id].push_back(chip);	
+}
+
+
+void parse_inputs(const Strings& lines)
+{
+	std::regex input_rx { R"rx(value ([[:digit:]]+) goes to bot ([[:digit:]]+))rx" };
+	std::smatch match;
+	
+	for (const auto& line : lines) {
+		if (std::regex_match(line, match, input_rx)) {
+			auto chip = std::stoi(match[1].str());
+			auto bot = std::stoi(match[2].str());
+			inputs.push_back(Chip_Bot(chip, bot));
+		}
+	}
+}
+
+
+void parse_rules(const Strings& lines)
+{
+	std::regex input_rx { R"rx(bot ([[:digit:]]+) gives low to (output|bot) ([[:digit:]]+) and high to (output|bot) ([[:digit:]]+))rx" };
+	std::smatch match;
+	
+	for (const auto& line : lines) {
+		if (std::regex_match(line, match, input_rx)) {
+			auto bot_id = std::stoi(match[1].str());
+
+			auto low_type = (match[2].str() == "output") ? Object_Type::OUTPUT : Object_Type::BOT;
+			auto low_id = std::stoi(match[3].str());
+			auto low = Destination(low_type, low_id);
+			
+			auto high_type = (match[4].str() == "output") ? Object_Type::OUTPUT : Object_Type::BOT;
+			auto high_id = std::stoi(match[5].str());
+			auto high = Destination(high_type, high_id);
+
+			auto iter = rules.lower_bound(bot_id);
+			if (iter == std::end(rules) || bot_id < iter->first) {
+				auto rule = Rule(low, high);
+				rules.insert(iter, std::make_pair(bot_id, rule));
+			}
+			else {
+				std::stringstream ss;
+				ss << "error inserting rule for bot " << bot_id << " which exists!";
+				throw std::domain_error(ss.str());
+			}
+		}
+	}
 }
 
 
@@ -170,28 +253,68 @@ int main(int, char**)
 			input.push_back(line);
 	}
 
-	auto inputs = parse_inputs(input);
-	auto objects = parse_objects(input);
+	parse_inputs(input);
+	// std::cout << "\ninputs (" << inputs.size() << "):\n";
+	// for (const auto& in : inputs) {
+	// 	std::cout << "  chip " << in.chip << " bot " << in.bot << '\n';
+	// }
 
-	std::cout << input.size() << "\n";
+	parse_rules(input);
+	// std::cout << "\nrules (" << rules.size() << "):\n";
+	// for (const auto& rule : rules) {
+	// 	std::cout
+	// 		<< "  bot " << rule.first
+	// 		<< " low " << (rule.second.low.type == Object_Type::OUTPUT ? "out-" : "bot-")
+	// 		<< rule.second.low.dest
+	// 		<< " high " << (rule.second.high.type == Object_Type::OUTPUT ? "out-" : "bot-")
+	// 		<< rule.second.high.dest << '\n';
+	// }
 
-	std::cout << "\ninputs (" << inputs.size() << "):\n";
+	initialize_bots();
+	// std::cout << "\nbots (" << bots.size() << "):\n";
+	// for (const auto& bot : bots) {
+	// 	std::cout
+	// 		<< "  bot " << bot.first
+	// 		<< " low " << bot.second.low
+	// 		<< " high " << bot.second.high << '\n';
+	// }
+
+	initialize_outputs();
+	// std::cout << "\noutputs (" << outputs.size() << "):\n";
+	// for (const auto& output : outputs) {
+	// 	std::cout
+	// 		<< "  output " << output.first
+	// 		<< " sz " << output.second.size() << " [";
+	// 	for (const auto& chip : output.second) {
+	// 		std::cout << ' ' << chip;
+	// 	}
+	// 	std::cout << " ]\n";
+	// }
+
+	// std::cout << '\n';
 	for (const auto& in : inputs) {
-		std::cout << in.first << " -> " << in.second << '\n';
+		std::cout << "give " << in.chip << " to bot " << in.bot << '\n';
+		bot_give(in.bot, in.chip);
+
+		// std::cout << "  bots (" << bots.size() << "):\n";
+		// for (const auto& bot : bots) {
+		// 	std::cout
+		// 		<< "    bot " << bot.first
+		// 		<< " low " << bot.second.low
+		// 		<< " high " << bot.second.high << '\n';
+		// }
 	}
 
-	std::cout << "\nobjects (" << objects.size() << "):\n";
-	for (const auto& obj : objects) {
-		if (obj.second->type == Object_Type::BOT) {
-			auto bot = std::static_pointer_cast<Bot>(obj.second);
-
-			std::cout << "bot " << bot->id << " low -> " << bot->give_low->id << " high -> " << bot->give_high->id << '\n';
-		}
-			else {
-				auto output = std::static_pointer_cast<Output>(obj.second);
-				std::cout << "output " << output->id << '\n';
-			}
-	}
+	// std::cout << "\noutputs (" << outputs.size() << "):\n";
+	// for (const auto& output : outputs) {
+	// 	std::cout
+	// 		<< "  output " << output.first
+	// 		<< " sz " << output.second.size() << " [";
+	// 	for (const auto& chip : output.second) {
+	// 		std::cout << ' ' << chip;
+	// 	}
+	// 	std::cout << " ]\n";
+	// }
 
 	return EXIT_SUCCESS;
 }
