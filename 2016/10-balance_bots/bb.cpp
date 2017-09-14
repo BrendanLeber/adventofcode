@@ -305,16 +305,17 @@ int main(int, char**)
 		// }
 	}
 
-	// std::cout << "\noutputs (" << outputs.size() << "):\n";
-	// for (const auto& output : outputs) {
-	// 	std::cout
-	// 		<< "  output " << output.first
-	// 		<< " sz " << output.second.size() << " [";
-	// 	for (const auto& chip : output.second) {
-	// 		std::cout << ' ' << chip;
-	// 	}
-	// 	std::cout << " ]\n";
-	// }
+	std::cout << "\noutputs (" << outputs.size() << "):\n";
+	for (const auto& output : outputs) {
+		std::cout
+			<< "  output " << output.first
+			<< " sz " << output.second.size() << " [";
+		for (const auto& chip : output.second) {
+			std::cout << ' ' << chip;
+		}
+		std::cout << " ]\n";
+	}
+	std::cout << '\n';
 
 	return EXIT_SUCCESS;
 }
