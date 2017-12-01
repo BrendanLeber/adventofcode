@@ -9,21 +9,25 @@ int inverse_captcha(Digits const& digits);
 
 int inverse_captcha(Digits const& digits)
 {
-    int sum = 0;
-    for (auto it = std::begin(digits); it != std::end(digits); ++it) {
-        if (*it == *(it + 1)) {
-            sum += *it;
-        }
-    }
+#if defined(PART_TWO)
+    size_t const half = digits.size() / 2;
+#else
+    size_t const half = 1;
+#endif
 
-    if (digits.front() == digits.back()) {
-        sum += digits.front();
+    int sum = 0;
+    size_t pos, wrap;
+    size_t const size = digits.size();
+    for (pos = 0, wrap = half; pos < size; ++pos, wrap = (wrap + 1) % size) {
+        if (digits[pos] == digits[wrap]) {
+            sum += digits[pos];
+        }
     }
 
     return sum;
 }
 
-int main(int /*argc*/, char** /*argv*/)
+int main()
 {
     std::string input;
     std::cin >> input;
@@ -35,8 +39,6 @@ int main(int /*argc*/, char** /*argv*/)
             digits.push_back(static_cast<int>(digit) - '0');
         }
     }
-
-    std::cerr << "input length: " << digits.size() << '\n';
 
     std::cout << inverse_captcha(digits) << '\n';
 
