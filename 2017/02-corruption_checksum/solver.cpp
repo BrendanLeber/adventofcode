@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <cmath>
 #include <iostream>
 #include <limits>
@@ -8,46 +9,38 @@
 using Row = std::vector<int>;
 using Sheet = std::vector<Row>;
 
-int corruption_checksum(Sheet const& sheet);
+int solve_part_1(Sheet const& sheet);
+int solve_part_2(Sheet const& sheet);
 
-int corruption_checksum(Sheet const& sheet)
+int solve_part_1(Sheet const& sheet)
 {
     int checksum = 0;
 
-#if defined(PART_TWO)
     for (auto const& row : sheet) {
-        bool found = false;
+        auto lo_hi = std::minmax_element(std::begin(row), std::end(row));
+        checksum += *lo_hi.second - *lo_hi.first;
+    }
+
+    return checksum;
+}
+
+int solve_part_2(Sheet const& sheet)
+{
+    int checksum = 0;
+
+    for (auto const& row : sheet) {
         int lo = 0, hi = 0;
-        for (size_t i = 0; !found && i < row.size(); ++i) {
-            for (size_t j = i + 1; !found && j < row.size(); ++j) {
+        for (size_t i = 0; i < row.size(); ++i) {
+            for (size_t j = i + 1; j < row.size(); ++j) {
                 lo = std::min(row[i], row[j]);
                 hi = std::max(row[i], row[j]);
                 auto d = std::div(hi, lo);
                 if (d.rem == 0) {
-                    found = true;
+		    checksum += hi / lo;
                 }
             }
         }
-
-        if (found) {
-            checksum += hi / lo;
-        } else {
-            std::cerr << "match not found!\n";
-        }
     }
-#else
-    for (auto const& row : sheet) {
-        int low = std::numeric_limits<int>::max();
-        int high = std::numeric_limits<int>::min();
-
-        for (auto const& value : row) {
-            low = std::min(low, value);
-            high = std::max(high, value);
-        }
-
-        checksum += high - low;
-    }
-#endif
 
     return checksum;
 }
@@ -69,7 +62,8 @@ int main()
         sheet.emplace_back(row);
     }
 
-    std::cout << corruption_checksum(sheet) << '\n';
+    std::cout << "Part 1: " << solve_part_1(sheet) << '\n';
+    std::cout << "Part 2: " << solve_part_2(sheet) << '\n';
 
     return 0;
 }

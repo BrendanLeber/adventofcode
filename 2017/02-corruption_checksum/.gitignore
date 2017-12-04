@@ -1,3 +1,2 @@
-corruption_checksum
-.emacs.desktop
-.emacs.desktop.lock
+solver
+.emacs.desktop*

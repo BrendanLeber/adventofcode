@@ -1,22 +1,19 @@
-CFLAGS=-DPART_TWO -std=c++17 -stdlib=libstdc++ -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
-#CFLAGS=-DPART_TWO -std=c++17 -Wall -g -O0
-CC=clang++
-#CC=g++
+#CFLAGS=-std=c++17 -stdlib=libstdc++ -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
+#CC=clang++
+CFLAGS=-std=c++17 -Wall -g -O0
+CC=g++
 
-corruption_checksum: corruption_checksum.cpp
-	$(CC) $(CFLAGS) -o corruption_checksum corruption_checksum.cpp
+solver: solver.cpp
+	$(CC) $(CFLAGS) -o solver solver.cpp
 
-run: corruption_checksum
-	cat input | ./corruption_checksum
-
-test: corruption_checksum
-	cat test_02.input | ./corruption_checksum
+run: solver
+	cat input | ./solver
 
 clean:
-	rm corruption_checksum
+	rm solver
 
 check:
-	clang-tidy corruption_checksum.cpp -config='' -- $(CFLAGS)
+	clang-tidy solver.cpp -config='' -- $(CFLAGS)
 
 format:
-	clang-format -i -style=file corruption_checksum.cpp
+	clang-format -i -style=file solver.cpp
