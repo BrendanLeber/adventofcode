@@ -552,3 +552,8 @@ tknk --- padx - havc
 
    Given that exactly one program is the wrong weight, *what would its
    weight need to be* to balance the entire tower?
+
+   Your puzzle answer was =646=.
+
+   /Both parts of this puzzle are complete!  They provide two gold
+   stars: **/
