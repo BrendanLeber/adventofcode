@@ -9,10 +9,10 @@
 using Row = std::vector<int>;
 using Sheet = std::vector<Row>;
 
-int solve_part_1(Sheet const& sheet);
-int solve_part_2(Sheet const& sheet);
+int part_1(Sheet const& sheet);
+int part_2(Sheet const& sheet);
 
-int solve_part_1(Sheet const& sheet)
+int part_1(Sheet const& sheet)
 {
     int checksum = 0;
 
@@ -24,7 +24,7 @@ int solve_part_1(Sheet const& sheet)
     return checksum;
 }
 
-int solve_part_2(Sheet const& sheet)
+int part_2(Sheet const& sheet)
 {
     int checksum = 0;
 
@@ -36,7 +36,7 @@ int solve_part_2(Sheet const& sheet)
                 hi = std::max(row[i], row[j]);
                 auto d = std::div(hi, lo);
                 if (d.rem == 0) {
-		    checksum += hi / lo;
+                    checksum += hi / lo;
                 }
             }
         }
@@ -62,8 +62,8 @@ int main()
         sheet.emplace_back(row);
     }
 
-    std::cout << "Part 1: " << solve_part_1(sheet) << '\n';
-    std::cout << "Part 2: " << solve_part_2(sheet) << '\n';
+    std::cout << "Part 1: " << part_1(sheet) << '\n';
+    std::cout << "Part 2: " << part_2(sheet) << '\n';
 
     return 0;
 }

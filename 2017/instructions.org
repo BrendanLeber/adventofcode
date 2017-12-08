@@ -52,9 +52,6 @@
 
    Your puzzle answer was =1253=.
 
-   The first half of this puzzle is complete! It provides one gold
-   star: *
-
 ** Part Two
 
    You notice a progress bar that jumps to 50% completion.
@@ -81,9 +78,6 @@
    *What is the solution* to your new captcha?
 
    Your puzzle answer was =1278=.
-
-   /Both parts of the puzzle are complete!  They provide two gold
-   stars: **/
 
 * Day 2: Corruption Checksum
 
@@ -121,9 +115,6 @@
 
    Your puzzle answer was =30994=.
 
-   /The first half of this puzzle is complete!  It provides one gold
-   star: */
-
 ** Part Two
 
    "Great work; looks like we're on the right track after all.  Here's
@@ -160,9 +151,6 @@
    What is the *sum of each row's result* in your puzzle input?
 
    Your puzzle answer was =233=.
-
-   /Both parts of this puzzle are complete! They provide two gold
-   stars: **/
 
 * Day 3: Spiral Memory
 
@@ -203,7 +191,7 @@
    *How many steps* are required to carry the data from the square
    identified in your puzzle input all the way to the access port?
 
-   Your puzzle answer was 438.
+   Your puzzle answer was =438=.
 
 ** Part Two
 
@@ -239,8 +227,6 @@
    input?
 
    Your puzzle answer was =266330=.
-
-   Both parts of this puzzle are complete! They provide two gold stars: **
 
    Your puzzle input was =265149=.
 
@@ -291,9 +277,6 @@
    Under this new system policy, *how many passphrases are valid?*
 
    Your puzzle answer was =167=.
-
-   Both parts of this puzzle are complete! They provide two gold
-   stars: **
 
 * Day 5: A Maze of Twisty Trampolines, All Alike
 
@@ -360,9 +343,6 @@
 
    Your puzzle answer was =25347697=.
 
-   /Both parts of this puzzle are complete! They provide two gold
-   stars: **/
-
 * Day 6: Memory Reallocation
 
 ** Part One
@@ -418,9 +398,6 @@
 
    Your puzzle answer was =3156=.
 
-   /The first half of this puzzle is complete! It provides one gold
-   star: */
-
 ** Part Two
 
    Out of curiosity, the debugger would also like to know the size of
@@ -435,9 +412,6 @@
    configuration in your puzzle input?
 
    Your puzzle answer was =1610=.
-
-   /Both parts of this puzzle are complete! They provide two gold
-   stars: **/
 
 * Day 7: Recursive Circus
 
@@ -517,9 +491,6 @@ tknk --- padx - havc
 
    Your puzzle answer was =azqje=.
 
-   /The first half of this puzzle is complete! It provides one gold
-   star: */
-
 ** Part Two
 
    The programs explain the situation: they can't get down.  Rather,
@@ -554,9 +525,6 @@ tknk --- padx - havc
    weight need to be* to balance the entire tower?
 
    Your puzzle answer was =646=.
-
-   /Both parts of this puzzle are complete!  They provide two gold
-   stars: **/
 
 * Day 8: I Heard You Like Registers
 
@@ -603,9 +571,6 @@ c inc -20 if c == 10
 
    Your puzzle answer was =5102=.
 
-   /The first half of this puzzle is complete!  It provides one gold
-   star: */
-
 ** Part Two
 
    To be safe, the CPU also needs to know the *highest value held in
@@ -615,6 +580,3 @@ c inc -20 if c == 10
    after the third instruction was evaluated).
 
    Your puzzle answer was =6056=.
-
-   /Both parts of this puzzle are complete!  They provide two gold
-   stars: **/

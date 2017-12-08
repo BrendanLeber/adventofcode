@@ -1,4 +1,4 @@
-#CFLAGS=-std=c++17 -stdlib=libstdc++ -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
+#CFLAGS=-std=c++17 -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
 #CC=clang++
 CFLAGS=-std=c++17 -Wall -g -O0
 CC=g++

@@ -1,6 +1,5 @@
 solver
-.emacs.desktop
-.emacs.desktop.lock
+.emacs.desktop*
 *.dot
 *~
 *.swp
