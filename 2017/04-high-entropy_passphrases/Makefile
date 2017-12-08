@@ -1,7 +1,7 @@
-#CFLAGS=-DPART_TWO -std=c++17 -stdlib=libstdc++ -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
-#CC=clang++
-CFLAGS=-DPART_ONE -std=c++17 -Wall -g -O0
-CC=g++
+CFLAGS=-std=c++17 -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
+CC=clang++
+#CFLAGS=-std=c++17 -Wall -g -O0
+#CC=g++
 
 solver: solver.cpp
 	$(CC) $(CFLAGS) -o solver solver.cpp
