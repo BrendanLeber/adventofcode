@@ -5,20 +5,29 @@
 
 using Digits = std::vector<int>;
 
-int inverse_captcha(Digits const& digits);
+int part_1(Digits const& digits);
+int part_2(Digits const& digits);
 
-int inverse_captcha(Digits const& digits)
+int part_1(Digits const& digits)
 {
-#if defined(PART_TWO)
-    size_t const half = digits.size() / 2;
-#else
-    size_t const half = 1;
-#endif
-
     int sum = 0;
     size_t pos, wrap;
     size_t const size = digits.size();
-    for (pos = 0, wrap = half; pos < size; ++pos, wrap = (wrap + 1) % size) {
+    for (pos = 0, wrap = 1; pos < size; ++pos, wrap = (wrap + 1) % size) {
+        if (digits[pos] == digits[wrap]) {
+            sum += digits[pos];
+        }
+    }
+
+    return sum;
+}
+
+int part_2(Digits const& digits)
+{
+    int sum = 0;
+    //size_t pos, wrap;
+    size_t const size = digits.size();
+    for (size_t pos = 0, wrap = size / 2; pos < size; ++pos, wrap = (wrap + 1) % size) {
         if (digits[pos] == digits[wrap]) {
             sum += digits[pos];
         }
@@ -40,7 +49,8 @@ int main()
         }
     }
 
-    std::cout << inverse_captcha(digits) << '\n';
+    std::cout << "Part 1: " << part_1(digits) << '\n';
+    std::cout << "Part 2: " << part_2(digits) << '\n';
 
     return 0;
 }

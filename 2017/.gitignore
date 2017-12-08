@@ -3,3 +3,4 @@ solver
 .emacs.desktop.lock
 *.dot
 *~
+*.swp

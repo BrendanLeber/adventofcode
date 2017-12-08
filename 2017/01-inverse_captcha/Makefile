@@ -1,16 +1,16 @@
-CFLAGS=-DPART_TWO -std=c++17 -stdlib=libstdc++ -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
+CFLAGS=-std=c++17 -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
 
-inverse_captcha: inverse_captcha.cpp
-	clang++ $(CFLAGS) -o inverse_captcha inverse_captcha.cpp
+solver: solver.cpp
+	clang++ $(CFLAGS) -o solver solver.cpp
 
-run: inverse_captcha
-	cat input | ./inverse_captcha
+run: solver
+	cat input | ./solver
 
 clean:
-	rm inverse_captcha
+	rm solver
 
 check:
-	clang-tidy inverse_captcha.cpp -config='' -- $(CFLAGS)
+	clang-tidy solver.cpp -config='' -- $(CFLAGS)
 
 format:
-	clang-format -i -style=file inverse_captcha.cpp
+	clang-format -i -style=file solver.cpp
