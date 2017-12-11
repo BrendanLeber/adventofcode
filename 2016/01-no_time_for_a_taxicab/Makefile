@@ -1,17 +1,16 @@
-PUZZLE=d01p02
-CFLAGS=-std=c++14 -stdlib=libstdc++ -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
+CXXFLAGS=-std=c++17 -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
 
-compile: $(PUZZLE).cpp
-	clang++ $(CFLAGS) -o $(PUZZLE) $(PUZZLE).cpp
+solver: solver.cpp
+	$(CXX) $(CXXFLAGS) -o solver solver.cpp
 
-test: compile
-	cat input | ./$(PUZZLE)
+run: solver
+	cat input | ./solver
 
 clean:
-	rm $(PUZZLE)
+	rm solver
 
 check:
-	clang-tidy $(PUZZLE).cpp -config='' -- $(CFLAGS)
+	clang-tidy solver.cpp -config='' -- $(CXXFLAGS)
 
 format:
-	clang-format -i -style=file $(PUZZLE).cpp
+	clang-format -i -style=file solver.cpp
