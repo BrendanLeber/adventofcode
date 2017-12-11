@@ -1,5 +1,5 @@
 ---
-Checks:          'clang-diagnostic-*,clang-analyzer-*,clang-diagnostic-*,clang-analyzer-*,-clang-analyzer-alpha*,*'
+Checks:          'clang-diagnostic-*,clang-analyzer-*,clang-diagnostic-*,clang-analyzer-*,-clang-analyzer-alpha*,*,-google-runtime-references'
 WarningsAsErrors: ''
 HeaderFilterRegex: ''
 AnalyzeTemporaryDtors: false
@@ -56,8 +56,6 @@ CheckOptions:
     value:           ''
   - key:             google-runtime-int.UnsignedTypePrefix
     value:           uint
-  - key:             google-runtime-references.WhiteListTypes
-    value:           ''
   - key:             hicpp-function-size.BranchThreshold
     value:           '4294967295'
   - key:             hicpp-function-size.LineThreshold
