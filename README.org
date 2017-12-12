@@ -60,7 +60,7 @@
     - [ ] Day 24: TBD
     - [ ] Day 25: TBD
 
-*** 2017 [8/25]
+*** 2017 [9/25]
 
     - [X] Day 1: Inverse Captcha
     - [X] Day 2: Corruption Checksum
@@ -70,8 +70,8 @@
     - [X] Day 6: Memory Reallocation
     - [X] Day 7: Recursive Circus
     - [X] Day 8: I Heard You Like Registers
-    - [ ] Day 9: TBD
-    - [ ] Day 10: TBD
+    - [X] Day 9: Stream Processing
+    - [ ] Day 10: Knot Hash
     - [ ] Day 11: TBD
     - [ ] Day 12: TBD
     - [ ] Day 13: TBD
