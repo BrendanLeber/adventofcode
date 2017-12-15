@@ -33,17 +33,15 @@ public:
 };
 
 struct Vertex {
-    int name;
-    bool visited;
-    int component;
+    int name = 0;
+    bool visited = false;
+    int component = 0;
 
     explicit Vertex(int n) : name(n), visited(false), component(0)
     {
     }
 
-    Vertex() : Vertex(0)
-    {
-    }
+    Vertex() = default;
 };
 
 struct Graph {

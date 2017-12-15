@@ -1005,7 +1005,7 @@ sw +--+ se
    [ ] [ ] ... ... [ ] ... [ ]
    [ ] [ ]         [ ]     [ ]
    [ ]             [ ]     [ ]
-   [ ]     [ ]
+                   [ ]     [ ]
    #+end_example
 
    Within each layer, a security scanner moves back and forth within

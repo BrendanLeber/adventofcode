@@ -1,7 +1,7 @@
 CXXFLAGS=-std=c++17 -pedantic -Weverything -Weffc++ -Wno-c++98-compat -Wno-padded -g -O0
 CXX=clang++
 
-solver: solver.cpp graph.hpp
+solver: solver.cpp
 	$(CXX) $(CXXFLAGS) -o solver solver.cpp
 
 run: solver
@@ -14,7 +14,7 @@ clean:
 	rm solver
 
 check: format
-	clang-tidy solver.cpp graph.hpp -config='' -- $(CXXFLAGS)
+	clang-tidy solver.cpp -config='' -- $(CXXFLAGS)
 
 format:
-	clang-format -i -style=file solver.cpp graph.hpp
+	clang-format -i -style=file solver.cpp
