@@ -2,7 +2,6 @@ CXXFLAGS=-std=c++17 -pedantic -Weverything -Weffc++ -Wno-c++98-compat -Wno-padde
 CXX=clang++
 
 solver: solver.cpp
-	$(CXX) $(CXXFLAGS) -o solver solver.cpp
 
 run: solver
 	cat input | ./solver
