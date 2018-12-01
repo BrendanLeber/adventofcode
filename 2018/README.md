@@ -21,4 +21,4 @@ Collect stars by solving puzzles.  Two puzzles will be made available on each
 day in the advent calendar; the second puzzle is unlocked when you complete the
 first. Each puzzle grants **one star**.  Good luck!
 
-- Day  1: [Chronal Calibration](01-chronal/README.md)
+- Day  1: [Chronal Calibration](01-chronal)

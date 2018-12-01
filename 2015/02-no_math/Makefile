@@ -1,20 +1,20 @@
 CXXFLAGS=-std=c++17 -pedantic -Weverything -Weffc++ -Wno-c++98-compat -Wno-padded -g -O0
 CXX=clang++
 
-solver: solver.cpp
-	$(CXX) $(CXXFLAGS) -o solver solver.cpp
+no_math: no_math.cpp
+	$(CXX) $(CXXFLAGS) -o no_math no_math.cpp
 
-run: solver
-	cat input | ./solver
+run: no_math
+	cat input | ./no_math
 
-test: solver
-	cat test.in | ./solver
+test: no_math
+	cat test.in | ./no_math
 
 clean:
-	rm solver
+	rm no_math
 
 check: format
-	clang-tidy solver.cpp -config='' -- $(CXXFLAGS)
+	clang-tidy no_math.cpp -config='' -- $(CXXFLAGS)
 
 format:
-	clang-format -i -style=file solver.cpp
+	clang-format -i -style=file no_math.cpp
