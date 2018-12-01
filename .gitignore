@@ -3,3 +3,4 @@ solver
 *.dot
 *~
 *.swp
+__pycache__
