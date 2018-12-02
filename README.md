@@ -7,6 +7,7 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 ### [2018](2018)
 
 - [X] Day 1: [Chronal Calibration](2018/01-chronal)
+- [X] Day 2: [Inventory Management System](2018/02-inventory)
 
 ### [2017](2017)
 
@@ -42,6 +43,11 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 
 - [X] Day 1: [Not Quite Lisp](2015/01-not_quite_lisp)
 - [X] Day 2: [I Was Told There Would Be No Math](2015/02-no_math)
+- [X] Day 3: [Perfectly Spherical Houses in a Vacuum](2015/03-spherical_houses)
+- [X] Day 4: [The Ideal Stocking Stuffer](2015/04-stocking_stuffer)
+- [X] Day 5: [Doesn't He Have Intern-Elves For This?](2015/05-intern_elves)
+- [X] Day 6: [Probably a Fire Hazard](2015/06-fire_hazard)
+- [ ] Day 7: [Some Assembly Required](2015/07-some_assembly)
 
 ## Author
 
