@@ -17,28 +17,40 @@ def part_one(package_ids: list) -> int:
     return match_two * match_three
 
 
-def levenshtein_distance(s1: str, s2: str) -> int:
-    if len(s1) > len(s2):
-        s1, s2 = s2, s1
-    distances = range(len(s1) + 1)
-    for i2, c2 in enumerate(s2):
-        distances_ = [i2 + 1]
-        for i1, c1 in enumerate(s1):
-            if c1 == c2:
-                distances_.append(distances[i1])
-            else:
-                distances_.append(1 + min((distances[i1], distances[i1 + 1], distances_[-1])))
-        distances = distances_
-    return distances[-1]
+#def levenshtein_distance(s1: str, s2: str) -> int:
+#    if len(s1) > len(s2):
+#        s1, s2 = s2, s1
+#    distances = range(len(s1) + 1)
+#    for i2, c2 in enumerate(s2):
+#        distances_ = [i2 + 1]
+#        for i1, c1 in enumerate(s1):
+#            if c1 == c2:
+#                distances_.append(distances[i1])
+#            else:
+#                distances_.append(1 + min((distances[i1], distances[i1 + 1], distances_[-1])))
+#        distances = distances_
+#    return distances[-1]
+
+
+#def part_two(package_ids: list) -> str:
+#    for first in package_ids:
+#        for second in package_ids:
+#            if levenshtein_distance(first, second) == 1:
+#                for pos in range(len(first)):
+#                    if first[pos] != second[pos]:
+#                        return first[0:pos] + first[pos + 1:]
+#    return None
 
 
 def part_two(package_ids: list) -> str:
-    for first in range(len(package_ids)):
-        for second in range(first + 1, len(package_ids)):
-            if levenshtein_distance(package_ids[first], package_ids[second]) == 1:
-                for pos in range(len(package_ids[first])):
-                    if package_ids[first][pos] != package_ids[second][pos]:
-                        return package_ids[first][0:pos] + package_ids[first][pos + 1:]
+    for first in package_ids:
+        for second in package_ids:
+            matches = []
+            for pos in range(0, len(first)):
+                if first[pos] == second[pos]:
+                    matches.append(first[pos])
+            if len(matches) == len(first) - 1:
+                return "".join(matches)
     return None
 
 
