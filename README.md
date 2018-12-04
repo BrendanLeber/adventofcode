@@ -8,7 +8,7 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 
 - [X] Day 1: [Chronal Calibration](2018/01-chronal)
 - [X] Day 2: [Inventory Management System](2018/02-inventory)
-- [ ] Day 3: [No Matter How You Slice It](2018/03-slices)
+- [X] Day 3: [No Matter How You Slice It](2018/03-slices)
 
 ### [2017](2017)
 
