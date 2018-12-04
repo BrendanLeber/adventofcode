@@ -23,3 +23,4 @@ first. Each puzzle grants **one star**.  Good luck!
 
 - [X] Day  1: [Chronal Calibration](01-chronal)
 - [X] Day  2: [Inventory Management System](02-inventory)
+- [ ] Day  3: [No Matter How You Slice It](03-slices)
