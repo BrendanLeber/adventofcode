@@ -6,20 +6,17 @@ import sys
 
 
 def part_one(polymer: str) -> int:
-    new_polymer = ""
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
     while True:
-        for pos in range(len(polymer) - 1):
-            if (
-                polymer[pos].casefold() == polymer[pos + 1].casefold()
-                and polymer[pos] != polymer[pos + 1]
-            ):
-                new_polymer = polymer[:pos] + polymer[pos + 2 :]
-                break
-        if len(new_polymer) == len(polymer):
-            break
-        polymer = new_polymer
+        old_len = len(polymer)
+        for unit in alphabet:
+            polymer = polymer.replace(unit + unit.upper(), "")
+            polymer = polymer.replace(unit.upper() + unit, "")
 
-    return len(new_polymer)
+        if len(polymer) == old_len:
+            break
+
+    return len(polymer)
 
 
 def part_two(polymer: str) -> int:
