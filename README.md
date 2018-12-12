@@ -10,7 +10,8 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 - [X] Day 2: [Inventory Management System](2018/02-inventory)
 - [X] Day 3: [No Matter How You Slice It](2018/03-slices)
 - [X] Day 4: [Repose Record](2018/04-repose)
-- [ ] Day 5: [Alchemical Reduction](2018/05-alchemical)
+- [X] Day 5: [Alchemical Reduction](2018/05-alchemical)
+- [ ] Day 6: [Chronal Coordinates](2018/06-chronal)
 
 ### [2017](2017)
 

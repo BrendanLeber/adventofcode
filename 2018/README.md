@@ -25,4 +25,5 @@ first. Each puzzle grants **one star**.  Good luck!
 - [X] Day  2: [Inventory Management System](02-inventory)
 - [X] Day  3: [No Matter How You Slice It](03-slices)
 - [X] Day  4: [Repose Record](04-repose)
-- [ ] Day  5: [Alchemical Reduction](05-alchemical)
+- [X] Day  5: [Alchemical Reduction](05-alchemical)
+- [ ] Day  6: [Chronal Coordinates](06-chronal)
