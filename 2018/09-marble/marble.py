@@ -83,9 +83,16 @@ def part_one(num_players, last_marble):
 if __name__ == "__main__":
     for line in fileinput.input():
         parts = line.strip().split()
-        result = part_one(int(parts[0]), int(parts[6]))
+
+        players = int(parts[0])
+        highest= int(parts[6])
+
+        result = part_one(players, highest)
         if len(parts) == 12:
             expected = int(parts[11])
             print(f"{result} {expected}")
         else:
             print(result)
+
+        result = part_one(players, highest * 100)
+        print(result)
