@@ -29,4 +29,5 @@ first. Each puzzle grants **one star**.  Good luck!
 - [X] Day  6: [Chronal Coordinates](06-chronal)
 - [X] Day  7: [The Sum of Its Parts](07-sumits)
 - [X] Day  8: [Memory Maneuver](08-memory)
-- [ ] Day  9: [Marble Mania](09-marble)
+- [X] Day  9: [Marble Mania](09-marble)
+- [ ] Day 10: [The Stars Align](10-stars)

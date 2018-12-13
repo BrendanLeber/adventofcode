@@ -14,7 +14,8 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 - [X] Day 6: [Chronal Coordinates](2018/06-chronal)
 - [X] Day 7: [The Sum of Its Parts](2018/07-sumits)
 - [X] Day 8: [Memory Maneuver](2018/08-memory)
-- [ ] Day 9: [Marble Mania](2018/09-marble)
+- [X] Day 9: [Marble Mania](2018/09-marble)
+- [ ] Day 10: [The Stars Align](2018/10-stars)
 
 ### [2017](2017)
 
