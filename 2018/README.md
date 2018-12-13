@@ -27,4 +27,5 @@ first. Each puzzle grants **one star**.  Good luck!
 - [X] Day  4: [Repose Record](04-repose)
 - [X] Day  5: [Alchemical Reduction](05-alchemical)
 - [X] Day  6: [Chronal Coordinates](06-chronal)
-- [ ] Day  7: [The Sum of Its Parts](07-sumits)
+- [X] Day  7: [The Sum of Its Parts](07-sumits)
+- [ ] Day  8: [Memory Maneuver](08-memory)
