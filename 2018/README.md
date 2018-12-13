@@ -28,4 +28,5 @@ first. Each puzzle grants **one star**.  Good luck!
 - [X] Day  5: [Alchemical Reduction](05-alchemical)
 - [X] Day  6: [Chronal Coordinates](06-chronal)
 - [X] Day  7: [The Sum of Its Parts](07-sumits)
-- [ ] Day  8: [Memory Maneuver](08-memory)
+- [X] Day  8: [Memory Maneuver](08-memory)
+- [ ] Day  9: [Marble Mania](09-marble)

@@ -13,7 +13,8 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 - [X] Day 5: [Alchemical Reduction](2018/05-alchemical)
 - [X] Day 6: [Chronal Coordinates](2018/06-chronal)
 - [X] Day 7: [The Sum of Its Parts](2018/07-sumits)
-- [ ] Day 8: [Memory Maneuver](2018/08-memory)
+- [X] Day 8: [Memory Maneuver](2018/08-memory)
+- [ ] Day 9: [Marble Mania](2018/09-marble)
 
 ### [2017](2017)
 
