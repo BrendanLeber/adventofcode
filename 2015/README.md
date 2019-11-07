@@ -14,4 +14,5 @@ when you complete the first.  Each puzzle grants **one star**.  Good luck!
 - [X] Day 4: [The Ideal Stocking Stuffer](04-stocking_stuffer)
 - [X] Day 5: [Doesn't He Have Intern-Elves For This?](05-intern_elves)
 - [X] Day 6: [Probably a Fire Hazard](06-fire_hazard)
-- [ ] Day 7: [Some Assembly Required](07-some_assembly)
+- [X] Day 7: [Some Assembly Required](07-some_assembly)
+- [ ] Day 8: [Matchsticks](08-matchsticks)
