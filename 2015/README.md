@@ -17,3 +17,4 @@ when you complete the first.  Each puzzle grants **one star**.  Good luck!
 - [X] Day 7: [Some Assembly Required](07-some_assembly)
 - [X] Day 8: [Matchsticks](08-matchsticks)
 - [X] Day 9: [All in a Single Night](09-single_night)
+- [X] Day 10: [Elves Look, Elves Say](10-look_and_say)
