@@ -60,7 +60,7 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 - [X] Day 5: [Doesn't He Have Intern-Elves For This?](2015/05-intern_elves)
 - [X] Day 6: [Probably a Fire Hazard](2015/06-fire_hazard)
 - [X] Day 7: [Some Assembly Required](2015/07-some_assembly)
-- [ ] Day 8: [Matchsticks](2015/08-matchsticks)
+- [X] Day 8: [Matchsticks](2015/08-matchsticks)
 
 ## Author
 
