@@ -16,3 +16,4 @@ when you complete the first.  Each puzzle grants **one star**.  Good luck!
 - [X] Day 6: [Probably a Fire Hazard](06-fire_hazard)
 - [X] Day 7: [Some Assembly Required](07-some_assembly)
 - [X] Day 8: [Matchsticks](08-matchsticks)
+- [X] Day 9: [All in a Single Night](09-single_night)
