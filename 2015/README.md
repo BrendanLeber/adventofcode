@@ -21,4 +21,5 @@ when you complete the first.  Each puzzle grants **one star**.  Good luck!
 - [X] Day 11: [Corporate Policy](11-policy)
 - [X] Day 12: [JSAbacusFramework.io](12-abacus)
 - [X] Day 13: [Knights of the Dinner Table](13-knights)
-- [ ] Day 14: [Reindeer Olympics](14-reindeer)
+- [X] Day 14: [Reindeer Olympics](14-reindeer)
+- [ ] Day 15: [Science for Hungry People](15-science)

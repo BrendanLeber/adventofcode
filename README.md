@@ -68,7 +68,8 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 - [X] Day 11: [Corporate Policy](2015/11-policy)
 - [X] Day 12: [JSAbacusFramework.io](2015/12-abacus)
 - [X] Day 13: [Knights of the Dinner Table](2015/13-knights)
-- [ ] Day 14: [Reindeer Olympics](2015/14-reindeer)
+- [X] Day 14: [Reindeer Olympics](2015/14-reindeer)
+- [ ] Day 15: [Science for Hungry People](2015/15-science)
 
 ## Author
 
