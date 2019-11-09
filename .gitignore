@@ -5,3 +5,4 @@ solver
 *.swp
 __pycache__
 .DS_Store
+.mypy_cache

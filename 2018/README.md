@@ -26,8 +26,10 @@ first. Each puzzle grants **one star**.  Good luck!
 - [X] Day  3: [No Matter How You Slice It](03-slices)
 - [X] Day  4: [Repose Record](04-repose)
 - [X] Day  5: [Alchemical Reduction](05-alchemical)
-- [X] Day  6: [Chronal Coordinates](06-chronal)
+- [X] Day  6: [Chronal Coordinates](06-chronal) - [Topological Sort][6]
 - [X] Day  7: [The Sum of Its Parts](07-sumits)
 - [X] Day  8: [Memory Maneuver](08-memory)
 - [X] Day  9: [Marble Mania](09-marble)
 - [ ] Day 10: [The Stars Align](10-stars)
+
+[6]: https://en.wikipedia.org/wiki/Topological_sorting

@@ -15,11 +15,13 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 - [X] Day 3: [No Matter How You Slice It](2018/03-slices)
 - [X] Day 4: [Repose Record](2018/04-repose)
 - [X] Day 5: [Alchemical Reduction](2018/05-alchemical)
-- [X] Day 6: [Chronal Coordinates](2018/06-chronal)
+- [X] Day 6: [Chronal Coordinates](2018/06-chronal) - [Topological Sort][2018-6]
 - [X] Day 7: [The Sum of Its Parts](2018/07-sumits)
 - [X] Day 8: [Memory Maneuver](2018/08-memory)
 - [X] Day 9: [Marble Mania](2018/09-marble)
 - [ ] Day 10: [The Stars Align](2018/10-stars)
+
+[2018-6]: https://en.wikipedia.org/wiki/Topological_sorting
 
 ### [2017](2017)
 
@@ -65,7 +67,8 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 - [X] Day 10: [Elves Look, Elves Say](2015/10-look_and_say)
 - [X] Day 11: [Corporate Policy](2015/11-policy)
 - [X] Day 12: [JSAbacusFramework.io](2015/12-abacus)
-- [ ] Day 13: [Knights of the Dinner Table](2015/13-knights)
+- [X] Day 13: [Knights of the Dinner Table](2015/13-knights)
+- [ ] Day 14: [Reindeer Olympics](2015/14-reindeer)
 
 ## Author
 
