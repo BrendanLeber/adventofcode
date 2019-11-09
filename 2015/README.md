@@ -19,4 +19,5 @@ when you complete the first.  Each puzzle grants **one star**.  Good luck!
 - [X] Day 9: [All in a Single Night](09-single_night)
 - [X] Day 10: [Elves Look, Elves Say](10-look_and_say)
 - [X] Day 11: [Corporate Policy](11-policy)
-- [ ] Day 12: [JSAbacusFramework.io](12-abacus)
+- [X] Day 12: [JSAbacusFramework.io](12-abacus)
+- [ ] Day 13: [Knights of the Dinner Table](13-knights)
