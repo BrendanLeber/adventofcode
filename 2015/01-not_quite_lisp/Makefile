@@ -1,20 +1,30 @@
-CXXFLAGS=-std=c++17 -pedantic -Weverything -Weffc++ -Wno-c++98-compat -Wno-padded -g -O0
-CXX=clang++
+.PHONY: run
+run:  ## run the program using default options
+	python solve.py input.txt
 
-not_quite_lisp: not_quite_lisp.cpp
-	$(CXX) $(CXXFLAGS) -o not_quite_lisp not_quite_lisp.cpp
 
-run: not_quite_lisp
-	cat input | ./not_quite_lisp
+.PHONY: test
+test:  ## run the program using test data input
+	python solve.py test.txt
 
-test: not_quite_lisp
-	cat test.in | ./not_quite_lisp
 
-clean:
-	rm not_quite_lisp
+.PHONY: format
+format:  ## format the source code according to black
+	black --line-length 100 --target-version py37 *.py
+	isort *.py
 
-check: format
-	clang-tidy not_quite_lisp.cpp -config='' -- $(CXXFLAGS)
 
-format:
-	clang-format -i -style=file not_quite_lisp.cpp
+.PHONY: lint
+lint:  ## use flake8 to lint the code
+	flake8 *.py
+
+
+.PHONY: pre-commit
+pre-commit: lint format  ## perform pre-commit checks to all code
+
+
+.PHONY: help
+help:  ## display help and options
+	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
+	    sort | \
+	    awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

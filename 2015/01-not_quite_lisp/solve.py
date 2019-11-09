@@ -1,16 +1,13 @@
 #!/usr/bin/env python3
-"""
-Solve the Advent of Code Day 01 problem:
-'Not Quite Lisp'.
-"""
 
 
 import fileinput
+import pdb
+import traceback
+from typing import Tuple
 
 
-def solve(data):
-    """Solve parts one and two."""
-
+def solve(data) -> Tuple[int, int]:
     # start on the ground floor
     floor = 0
 
@@ -37,10 +34,10 @@ def solve(data):
 
 
 if __name__ == "__main__":
-    # read problem input from file or stdin
-    puzzle = ""
-    for line in fileinput.input():
-        puzzle = puzzle + line.strip()
-
-    result = solve(puzzle)
-    print(result)
+    try:
+        for line in fileinput.input():
+            puzzle = line.strip()
+            print(solve(puzzle))
+    except Exception:
+        traceback.print_exc()
+        pdb.post_mortem()
