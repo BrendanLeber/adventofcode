@@ -19,7 +19,8 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 - [X] Day 7: [The Sum of Its Parts](2018/07-sumits)
 - [X] Day 8: [Memory Maneuver](2018/08-memory)
 - [X] Day 9: [Marble Mania](2018/09-marble)
-- [ ] Day 10: [The Stars Align](2018/10-stars)
+- [X] Day 10: [The Stars Align](2018/10-stars)
+- [ ] Day 11: [Chronal Charge](2018/11-charge)
 
 [2018-6]: https://en.wikipedia.org/wiki/Topological_sorting
 
@@ -72,6 +73,7 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 - [X] Day 15: [Science for Hungry People](2015/15-science)
 - [X] Day 16: [Aunt Sue](2015/16-aunt_sue)
 - [X] Day 17: [No Such Thing as Too Much](2015/17-too_much)
+- [X] Day 18: [Like a GIF For Your Yard](2015/18-like_a_gif)
 
 ## Author
 

@@ -25,3 +25,4 @@ when you complete the first.  Each puzzle grants **one star**.  Good luck!
 - [X] Day 15: [Science for Hungry People](15-science)
 - [X] Day 16: [Aunt Sue](16-aunt_sue)
 - [X] Day 17: [No Such Thing as Too Much](17-too_much)
+- [X] Day 18: [Like a GIF For Your Yard](18-like_a_gif)
