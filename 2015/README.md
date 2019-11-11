@@ -23,3 +23,4 @@ when you complete the first.  Each puzzle grants **one star**.  Good luck!
 - [X] Day 13: [Knights of the Dinner Table](13-knights)
 - [X] Day 14: [Reindeer Olympics](14-reindeer)
 - [X] Day 15: [Science for Hungry People](15-science)
+- [X] Day 16: [Aunt Sue](16-aunt_sue)
