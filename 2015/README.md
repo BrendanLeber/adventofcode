@@ -27,3 +27,4 @@ when you complete the first.  Each puzzle grants **one star**.  Good luck!
 - [X] Day 17: [No Such Thing as Too Much](17-too_much)
 - [X] Day 18: [Like a GIF For Your Yard](18-like_a_gif)
 - [X] Day 19: [Medicine for Rudolph](19-rudolph)
+- [X] Day 20: [Infinite Elves and Infinite Houses](20-infinite)
