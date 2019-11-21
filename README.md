@@ -76,6 +76,7 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 - [X] Day 18: [Like a GIF For Your Yard](2015/18-like_a_gif)
 - [X] Day 19: [Medicine for Rudolph](2015/19-rudolph)
 - [X] Day 20: [Infinite Elves and Infinite Houses](2015/20-infinite)
+- [X] Day 21: [RPG Simulator 20XX](2015/21-rpg_simulator)
 
 ## Author
 
