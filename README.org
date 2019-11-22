@@ -75,6 +75,7 @@ My solutions to the various [[https://adventofcode.com/][Avent of Code]] problem
     - [X] Day 19: [[2015/19-rudolph][Medicine for Rudolph]]
     - [X] Day 20: [[2015/20-infinite][Infinite Elves and Infinite Houses]]
     - [X] Day 21: [[2015/21-rpg_simulator][RPG Simulator 20XX]]
+    - [X] Day 22: [[2015/22-wizard_simulator][Wizard Simulator 20XX]]
 
 ** Author
 

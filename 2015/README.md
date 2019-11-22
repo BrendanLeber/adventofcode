@@ -29,3 +29,4 @@ when you complete the first.  Each puzzle grants **one star**.  Good luck!
 - [X] Day 19: [Medicine for Rudolph](19-rudolph)
 - [X] Day 20: [Infinite Elves and Infinite Houses](20-infinite)
 - [X] Day 21: [RPG Simulator 20XX](21-rpg_simulator)
+- [X] Day 22: [Wizard Simulator 20XX](22-wizard_simulator)
