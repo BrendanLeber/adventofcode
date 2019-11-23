@@ -32,3 +32,4 @@ when you complete the first.  Each puzzle grants **one star**.  Good luck!
 - [X] Day 22: [Wizard Simulator 20XX](22-wizard_simulator)
 - [X] Day 23: [Opening the Turing Lock](23-opening_lock)
 - [X] Day 24: [It Hangs in the Balance](24-it_hangs)
+- [X] Day 25: [Let It Snow](25-let_it_snow)
