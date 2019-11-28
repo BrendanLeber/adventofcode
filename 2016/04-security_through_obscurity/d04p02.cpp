@@ -66,7 +66,7 @@ bool is_real_room(Data data)
     std::string encrypted_name, checksum;
 
     std::tie(encrypted_name, std::ignore, checksum) = data;
-    
+
     encrypted_name.erase(
         std::remove_if(std::begin(encrypted_name), std::end(encrypted_name), [](char x) { return x == '-'; }),
         std::end(encrypted_name));
@@ -80,7 +80,7 @@ bool is_real_room(Data data)
             return false;
         }
     }
-    
+
     // return true if we made it here as it's a match
     return true;
 }
