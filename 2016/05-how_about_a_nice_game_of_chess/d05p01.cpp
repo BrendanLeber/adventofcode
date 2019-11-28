@@ -16,7 +16,7 @@ int main(int argc, char** argv)
     const std::string start { "00000" };
     std::string password;
     int index = 0;
-    
+
     do {
         auto hash = md5(input + std::to_string(index));
         if (hash.compare(0, start.length(), start) == 0) {
@@ -25,7 +25,7 @@ int main(int argc, char** argv)
             std::cout << index << ' ' << ch << ' ' << password << std::endl;
         }
 
-        ++index;        
+        ++index;
     } while (password.length() < 8);
 
     std::cout << password << '\n';
