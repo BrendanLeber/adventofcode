@@ -1,33 +1,31 @@
-#CFLAGS=-std=c++14 -stdlib=libstdc++ -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
-CFLAGS=-std=c++14 -pedantic -Weffc++ -Wno-c++98-compat -g -O0
-
-eic: eic.cpp
-	g++ $(CFLAGS) -o eic eic.cpp
+.PHONY: run
+run:  ## run the program using default options
+	python solve.py input.txt
 
 
-test: eic
-	cat test01.input | ./eic > test01.result
-	diff -uw test01.output test01.result
-	cat test02.input | ./eic > test02.result
-	diff -uw test02.output test02.result
-	cat test03.input | ./eic > test03.result
-	diff -uw test03.output test03.result
-	cat test04.input | ./eic > test04.result
-	diff -uw test04.output test04.result
-	cat test05.input | ./eic > test05.result
-	diff -uw test05.output test05.result
-	cat test06.input | ./eic > test06.result
-	diff -uw test06.output test06.result
+.PHONY: test
+test:  ## run the program using test data input
+	python solve.py test.txt
 
-run: eic
-	cat input | ./eic
 
-clean:
-	rm eic
-	rm *.result
+.PHONY: format
+format:  ## format the source code according to black
+	black --line-length 100 --target-version py37 *.py
+	isort *.py
 
-check:
-	clang-tidy eic.cpp -config='' -- $(CFLAGS)
 
-format:
-	clang-format -i -style=file eic.cpp
+.PHONY: lint
+lint:  ## use flake8 to lint the code
+	flake8 *.py
+	mypy *.py
+
+
+.PHONY: pre-commit
+pre-commit: lint format  ## perform pre-commit checks to all code
+
+
+.PHONY: help
+help:  ## display help and options
+	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
+	    sort | \
+	    awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
