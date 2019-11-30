@@ -50,7 +50,9 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 - [X] Day  8: [Two-Factor Authentication](2016/08-two_factor_authentication)
 - [X] Day  9: [Explosives in Cyberspace](2016/09-explosives_in_cyberspace)
 - [X] Day 10: [Balance Bots](2016/10-balance_bots)
-- [ ] Day 11: [Radioisotope Thermoelectric Generators](2016/11-radioisotope_thermoelectric_generators)
+- [X] Day 11: [Radioisotope Thermoelectric Generators](2016/11-radioisotope_thermoelectric_generators)
+- [X] Day 12: [Leonardo's Monorail](2016/12-leonardos_monorail)
+- [ ] Day 13: [A Maze of Twisty Little Cubicles](2016/13-a_maze)
 
 ### [2015](2015) - Completed
 

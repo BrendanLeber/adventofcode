@@ -19,4 +19,6 @@ first.  Each puzzle grants **one star**.  Good luck!
 - [X] Day  8: [Two-Factor Authentication](08-two_factor_authentication)
 - [X] Day  9: [Explosives in Cyberspace](09-explosives_in_cyberspace)
 - [X] Day 10: [Balance Bots](10-balance_bots)
-- [ ] Day 11: [Radioisotope Thermoelectric Generators](11-radioisotope_thermalelectric_generators)
+- [X] Day 11: [Radioisotope Thermoelectric Generators](11-radioisotope_thermalelectric_generators)
+- [X] Day 12: [Leonardo's Monorail](12-leonardos_monorail)
+- [ ] Day 13: [A Maze of Twisty Little Cubicles](13-a_maze)
