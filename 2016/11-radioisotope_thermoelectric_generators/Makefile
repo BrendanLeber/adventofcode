@@ -1,21 +1,31 @@
-#CFLAGS=-std=c++14 -stdlib=libstdc++ -pedantic -Weverything -Weffc++ -Wno-c++98-compat -g -O0
-CFLAGS=-std=c++14 -pedantic -Weffc++ -Wno-c++98-compat -g -O0
-
-rng: rng.cpp
-	g++ $(CFLAGS) -o rng rng.cpp
+.PHONY: run
+run:  ## run the program using default options
+	python solve.py
 
 
-test: rng
-	cat test01.input | ./rng
+#.PHONY: test
+#test:  ## run the program using test data input
+#	python solve.py test.txt
 
-run: rng
-	cat input | ./rng
 
-clean:
-	rm rng
+.PHONY: format
+format:  ## format the source code according to black
+	black --line-length 100 --target-version py37 *.py
+	isort *.py
 
-check:
-	clang-tidy rng.cpp -config='' -- $(CFLAGS)
 
-format:
-	clang-format -i -style=file rng.cpp
+.PHONY: lint
+lint:  ## use flake8 to lint the code
+	flake8 *.py
+	mypy *.py
+
+
+.PHONY: pre-commit
+pre-commit: lint format  ## perform pre-commit checks to all code
+
+
+.PHONY: help
+help:  ## display help and options
+	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
+	    sort | \
+	    awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

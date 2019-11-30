@@ -2,6 +2,8 @@
 
 ## Day 11: Radioisotope Thermoelectric Generators
 
+### Part One
+
 You come upon a column of four floors that have been entirely sealed off from
 the rest of the building except for a small dedicated lobby.  There are some
 radiation warnings and a big sign which reads "Radioisotope Testing Facility".
@@ -66,10 +68,10 @@ for Lithium, `M` for Microchip, and `G` for Generator), the initial state looks
 like this:
 
 ```
-F4 .  .  .  .  .  
-F3 .  .  .  LG .  
-F2 .  HG .  .  .  
-F1 E  .  HM .  LM 
+F4 .  .  .  .  .
+F3 .  .  .  LG .
+F2 .  HG .  .  .
+F1 E  .  HM .  LM
 ```
 
 Then, to get everything up to the assembling machine on the fourth floor, the
@@ -79,20 +81,20 @@ following steps could be taken:
   because it can get power from the Hydrogen Generator:
 
 ```
-F4 .  .  .  .  .  
-F3 .  .  .  LG .  
-F2 E  HG HM .  .  
-F1 .  .  .  .  LM 
+F4 .  .  .  .  .
+F3 .  .  .  LG .
+F2 E  HG HM .  .
+F1 .  .  .  .  LM
 ```
 
 - Bring both Hydrogen-related items to the third floor, which is safe because
   the Hydrogen-compatible microchip is getting power from its generator:
 
 ```
-F4 .  .  .  .  .  
-F3 E  HG HM LG .  
-F2 .  .  .  .  .  
-F1 .  .  .  .  LM 
+F4 .  .  .  .  .
+F3 E  HG HM LG .
+F2 .  .  .  .  .
+F1 .  .  .  .  LM
 ```
 
 - Leave the Hydrogen Generator on floor three, but bring the
@@ -100,29 +102,29 @@ F1 .  .  .  .  LM
   elevator:
 
 ```
-F4 .  .  .  .  .  
-F3 .  HG .  LG .  
-F2 E  .  HM .  .  
-F1 .  .  .  .  LM 
+F4 .  .  .  .  .
+F3 .  HG .  LG .
+F2 E  .  HM .  .
+F1 .  .  .  .  LM
 ```
 
 - At the first floor, grab the Lithium-compatible Microchip, which is safe
   because Microchips don't affect each other:
 
 ```
-F4 .  .  .  .  .  
-F3 .  HG .  LG .  
-F2 .  .  .  .  .  
-F1 E  .  HM .  LM 
+F4 .  .  .  .  .
+F3 .  HG .  LG .
+F2 .  .  .  .  .
+F1 E  .  HM .  LM
 ```
 
 - Bring both Microchips up one floor, where there is nothing to fry them:
 
 ```
-F4 .  .  .  .  .  
-F3 .  HG .  LG .  
-F2 E  .  HM .  LM 
-F1 .  .  .  .  .  
+F4 .  .  .  .  .
+F3 .  HG .  LG .
+F2 E  .  HM .  LM
+F1 .  .  .  .  .
 ```
 
 - Bring both Microchips up again to floor three, where they can be temporarily
@@ -130,19 +132,19 @@ F1 .  .  .  .  .
   preventing either of them from being fried:
 
 ```
-F4 .  .  .  .  .  
-F3 E  HG HM LG LM 
-F2 .  .  .  .  .  
-F1 .  .  .  .  .  
+F4 .  .  .  .  .
+F3 E  HG HM LG LM
+F2 .  .  .  .  .
+F1 .  .  .  .  .
 ```
 
 - Bring both Microchips to the fourth floor:
 
 ```
-F4 E  .  HM .  LM 
-F3 .  HG .  LG .  
-F2 .  .  .  .  .  
-F1 .  .  .  .  .  
+F4 E  .  HM .  LM
+F3 .  HG .  LG .
+F2 .  .  .  .  .
+F1 .  .  .  .  .
 ```
 
 - Leave the Lithium-compatible microchip on the fourth floor, but bring the
@@ -151,10 +153,10 @@ F1 .  .  .  .  .
   connect Hydrogen-compatible microchip to the Hydrogen Generator there:
 
 ```
-F4 .  .  .  .  LM 
-F3 E  HG HM LG .  
-F2 .  .  .  .  .  
-F1 .  .  .  .  .  
+F4 .  .  .  .  LM
+F3 E  HG HM LG .
+F2 .  .  .  .  .
+F1 .  .  .  .  .
 ```
 
 - Bring both Generators up to the fourth floor, which is safe because you can
@@ -162,29 +164,29 @@ F1 .  .  .  .  .
   arrival:
 
 ```
-F4 E  HG .  LG LM 
-F3 .  .  HM .  .  
-F2 .  .  .  .  .  
-F1 .  .  .  .  .  
+F4 E  HG .  LG LM
+F3 .  .  HM .  .
+F2 .  .  .  .  .
+F1 .  .  .  .  .
 ```
 
 - Bring the Lithium Microchip with you to the third floor so you can use the
   elevator:
 
 ```
-F4 .  HG .  LG .  
-F3 E  .  HM .  LM 
-F2 .  .  .  .  .  
-F1 .  .  .  .  .  
+F4 .  HG .  LG .
+F3 E  .  HM .  LM
+F2 .  .  .  .  .
+F1 .  .  .  .  .
 ```
 
 - Bring both Microchips to the fourth floor:
 
 ```
-F4 E  HG HM LG LM 
-F3 .  .  .  .  .  
-F2 .  .  .  .  .  
-F1 .  .  .  .  .  
+F4 E  HG HM LG LM
+F3 .  .  .  .  .
+F2 .  .  .  .  .
+F1 .  .  .  .  .
 ```
 
 In this arrangement, it takes 11 steps to collect all of the objects at the
@@ -193,3 +195,22 @@ nothing is added to or removed from it.)
 
 In your situation, what is the minimum number of steps required to bring all of
 the objects to the fourth floor?
+
+### Part One
+
+You step into the cleanroom separating the lobby from the isolated area and put
+on the hazmat suit.
+
+Upon entering the isolated containment area, however, you notice some extra
+parts on the first floor that weren't listed on the record outside:
+
+- An elerium generator.
+- An elerium-compatible microchip.
+- A dilithium generator.
+- A dilithium-compatible microchip.
+
+These work just like the other generators and microchips.  You'll have to get
+them up to assembly as well.
+
+What is the *minimum number of steps* required to bring all of the objects,
+including these four new ones, to the fourth floor?
