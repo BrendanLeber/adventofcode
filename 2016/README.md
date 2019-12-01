@@ -24,3 +24,5 @@ first.  Each puzzle grants **one star**.  Good luck!
 - [X] Day 13: [A Maze of Twisty Little Cubicles](13-a_maze)
 - [X] Day 14: [One-Time Pad][14-one_time]
 - [X] Day 15: [Timing is Everything][15-timing]
+- [X] Day 16: [Dragon Checksum][16-dragon_checksum]
+- [ ] Day 17: [Two Steps Forward][17-two_steps]

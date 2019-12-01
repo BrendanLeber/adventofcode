@@ -55,6 +55,8 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 - [X] Day 13: [A Maze of Twisty Little Cubicles](2016/13-a_maze)
 - [X] Day 14: [One-Time Pad][2016/14-one_time]
 - [X] Day 15: [Timing is Everything][2016/15-timing]
+- [X] Day 16: [Dragon Checksum][2016/16-dragon_checksum]
+- [ ] Day 17: [Two Steps Forward][2016/17-two_steps]
 
 ### [2015](2015) - Completed
 
