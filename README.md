@@ -53,7 +53,8 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 - [X] Day 11: [Radioisotope Thermoelectric Generators](2016/11-radioisotope_thermoelectric_generators)
 - [X] Day 12: [Leonardo's Monorail](2016/12-leonardos_monorail)
 - [X] Day 13: [A Maze of Twisty Little Cubicles](2016/13-a_maze)
-- [ ] Day 14: [One-Time Pad][2016/14-one_time]
+- [X] Day 14: [One-Time Pad][2016/14-one_time]
+- [ ] Day 15: [Timing is Everything][2016/15-timing]
 
 ### [2015](2015) - Completed
 

@@ -22,4 +22,5 @@ first.  Each puzzle grants **one star**.  Good luck!
 - [X] Day 11: [Radioisotope Thermoelectric Generators](11-radioisotope_thermalelectric_generators)
 - [X] Day 12: [Leonardo's Monorail](12-leonardos_monorail)
 - [X] Day 13: [A Maze of Twisty Little Cubicles](13-a_maze)
-- [ ] Day 14: [One-Time Pad][14-one_time]
+- [X] Day 14: [One-Time Pad][14-one_time]
+- [ ] Day 15: [Timing is Everything][15-timing]
