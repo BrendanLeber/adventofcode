@@ -1,5 +1,14 @@
 # Advent of Code 2019
 
-TBD...
+Santa has become stranded at the edge of the Solar System while delivering
+presents to other planets!  To accurately calculate his position in space,
+safely align his warp drive, and return to Earth in time to save Christmas, he
+needs you to bring him measurements from **fifty stars**.
 
-- [ ] Day  1: [Day 1](01-one)
+Collect stars by solving puzzles.  Two puzzles will be made available on each
+day in the Advent calendar; the second puzzle is unlocked when you complete the
+first.  Each puzzle grants **one star**.  Good luck!
+
+The Elves quickly load you into a spacecraft and prepare to launch.
+
+- [X] Day  1: [The Tyranny of the Rocket Equation](01-tyranny_rocket)
