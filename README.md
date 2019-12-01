@@ -52,7 +52,8 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 - [X] Day 10: [Balance Bots](2016/10-balance_bots)
 - [X] Day 11: [Radioisotope Thermoelectric Generators](2016/11-radioisotope_thermoelectric_generators)
 - [X] Day 12: [Leonardo's Monorail](2016/12-leonardos_monorail)
-- [ ] Day 13: [A Maze of Twisty Little Cubicles](2016/13-a_maze)
+- [X] Day 13: [A Maze of Twisty Little Cubicles](2016/13-a_maze)
+- [ ] Day 14: [One-Time Pad][2016/14-one_time]
 
 ### [2015](2015) - Completed
 
