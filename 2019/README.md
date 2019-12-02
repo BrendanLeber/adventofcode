@@ -12,3 +12,4 @@ first.  Each puzzle grants **one star**.  Good luck!
 The Elves quickly load you into a spacecraft and prepare to launch.
 
 - [X] Day  1: [The Tyranny of the Rocket Equation](01-tyranny_rocket)
+- [X] Day  2: [1202 Program Alarm](02-1202_program_alarm)

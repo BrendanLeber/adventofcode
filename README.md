@@ -7,6 +7,7 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 ### [2019](2019)
 
 - [X] Day  1: [The Tyranny of the Rocket Equation](2019/01-tyranny_rocket)
+- [X] Day  2: [1202 Program Alarm](2019/02-1202_program_alarm)
 
 ### [2018](2018)
 
