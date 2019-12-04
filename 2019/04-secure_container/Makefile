@@ -3,6 +3,11 @@ run:  ## run the program using default options
 	python solve.py
 
 
+.PHONY: test
+test:  ## run the tests to exersize the solution functions
+	python tests.py --verbose
+
+
 .PHONY: format
 format:  ## format the source code according to black
 	black --line-length 100 --target-version py37 *.py
