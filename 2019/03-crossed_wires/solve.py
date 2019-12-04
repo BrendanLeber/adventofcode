@@ -181,7 +181,7 @@ def solve(paths: List[Path]) -> Tuple[int, int]:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Advent of Code - 2019 - Day 3 - Crossed Wires")
+    parser = argparse.ArgumentParser(description="Advent of Code - 2019 - Day 3 - Crossed Wires.")
     parser.add_argument(
         "input",
         type=str,
