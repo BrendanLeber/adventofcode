@@ -14,3 +14,4 @@ The Elves quickly load you into a spacecraft and prepare to launch.
 - [X] Day  1: [The Tyranny of the Rocket Equation](01-tyranny_rocket)
 - [X] Day  2: [1202 Program Alarm](02-1202_program_alarm)
 - [X] Day  3: [Crossed Wires](03-crossed_wires)
+- [ ] Day  4: [Secure Container](04-secure_container)

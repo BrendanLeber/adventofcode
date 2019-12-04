@@ -9,6 +9,7 @@ My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
 - [X] Day  1: [The Tyranny of the Rocket Equation](2019/01-tyranny_rocket)
 - [X] Day  2: [1202 Program Alarm](2019/02-1202_program_alarm)
 - [X] Day  3: [Crossed Wires](2019/03-crossed_wires)
+- [ ] Day  4: [Secure Container](2019/04-secure_container)
 
 ### [2018](2018)
 
