@@ -3,43 +3,31 @@
 import argparse
 import pdb
 import traceback
-from copy import copy
-from itertools import permutations
 from typing import List, Optional, Tuple
+
+from intcode import Intcode
 
 VERBOSE: bool = False
 
 
-def execute(noun: int, verb: int, pgm: List[int]) -> Optional[int]:
-    ram: List[int] = copy(pgm)
-    ram[1] = noun
-    ram[2] = verb
-    ip: int = 0
-    while ram[ip] != 99:  # halt
-        if ram[ip] == 1:  # add
-            ram[ram[ip + 3]] = ram[ram[ip + 1]] + ram[ram[ip + 2]]
-            ip += 4
-        elif ram[ip] == 2:  # mul
-            ram[ram[ip + 3]] = ram[ram[ip + 1]] * ram[ram[ip + 2]]
-            ip += 4
-        else:
-            return None
-    return ram[0]
+def solve(program: List[int]) -> Tuple[Optional[int], Optional[int]]:
+    vm: Intcode = Intcode(program)
+    vm.reset()
+    vm.set_noun_and_verb(12, 2)
+    one: Optional[int] = vm.execute()
 
+    for noun in range(100):
+        for verb in range(100):
+            if VERBOSE:
+                print(f"Testing noun {noun} and verb {verb}.")
+            vm.reset()
+            vm.set_noun_and_verb(noun, verb)
+            output: Optional[int] = vm.execute()
+            if output == 19690720:
+                two: Optional[int] = 100 * noun + verb
+                return (one, two)
 
-def solve(program: List[int]) -> Tuple[Optional[int], int]:
-    noun: int = 12  # restore gravity assist
-    verb: int = 2
-    one: Optional[int] = execute(noun, verb, program)
-
-    nouns_and_verbs: List[int] = list(range(100)) + list(range(100))
-    for noun, verb in permutations(nouns_and_verbs, 2):
-        output: Optional[int] = execute(noun, verb, program)
-        if output == 19690720:
-            break
-    two: int = 100 * noun + verb
-
-    return (one, two)
+    return (one, None)
 
 
 if __name__ == "__main__":
