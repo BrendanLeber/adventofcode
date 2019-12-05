@@ -4,8 +4,8 @@ run:  ## run the program using default options
 
 
 .PHONY: test
-test:  ## run the program using test data input
-	python solve.py test.txt
+test:  ## exercise functions in the solution using unittest
+	python tests.py --verbose
 
 
 .PHONY: format
@@ -17,6 +17,7 @@ format:  ## format the source code according to black
 .PHONY: lint
 lint:  ## use flake8 to lint the code
 	flake8 *.py
+	mypy *.py
 
 
 .PHONY: pre-commit
