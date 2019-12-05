@@ -1,21 +1,38 @@
 # -*- coding: utf-8 -*-
 
-from typing import Dict, List, Optional, Tuple
+from enum import IntEnum
+from typing import Dict, List, NamedTuple, Optional, Tuple
+
+
+class ParameterMode(IntEnum):
+    POSITIONAL = 0
+    IMMEDIATE = 1
+
+
+class ParameterType(IntEnum):
+    READ = 0
+    WRITE = 1
+
+
+class InstructionInfo(NamedTuple):
+    name: str
+    params: Tuple[ParameterType, ...]
+
+
+INSTRUCTIONS: Dict[int, InstructionInfo] = {
+    1: InstructionInfo("add", (ParameterType.READ, ParameterType.READ, ParameterType.WRITE)),
+    2: InstructionInfo("multiply", (ParameterType.READ, ParameterType.READ, ParameterType.WRITE)),
+    3: InstructionInfo("input", (ParameterType.WRITE,)),
+    4: InstructionInfo("output", (ParameterType.READ,)),
+    5: InstructionInfo("jump-if-true", (ParameterType.READ, ParameterType.READ)),
+    6: InstructionInfo("jump-if-false", (ParameterType.READ, ParameterType.READ)),
+    7: InstructionInfo("less-than", (ParameterType.READ, ParameterType.READ, ParameterType.WRITE)),
+    8: InstructionInfo("equals", (ParameterType.READ, ParameterType.READ, ParameterType.WRITE)),
+    99: InstructionInfo("halt", tuple()),
+}
 
 
 class Intcode:
-    opcodes: Dict[int, Tuple[str, int]] = {
-        1: ("add", 3),
-        2: ("multiply", 3),
-        3: ("input", 1),
-        4: ("output", 1),
-        5: ("jump-if-true", 2),
-        6: ("jump-if-false", 2),
-        7: ("less-than", 3),
-        8: ("equals", 3),
-        99: ("halt", 0),
-    }
-
     def __init__(self, program: List[int]) -> None:
         self.ip: int = 0
         self.program: List[int] = program[:]
@@ -23,79 +40,64 @@ class Intcode:
         self.last_output: Optional[int] = None
         self.last_input: Optional[int] = None
 
-    def decode(self, opcode: int) -> Tuple[int, int, int, int]:
-        """Decode the opcode and the parameter mode for up to three parameters."""
-        op: int = opcode % 100
-        pm1: int = (opcode // 100) % 10
-        pm2: int = (opcode // 1000) % 10
-        pm3: int = (opcode // 10000) % 10
-        return (op, pm1, pm2, pm3)
+    def decode_instruction(self) -> Tuple[int, List[int]]:
+        """Decode the opcode and the arguments for this instruction."""
+        opcode: int = self.tape[self.ip] % 100
+        arguments: List[int] = []
+        mask: int = 10
+        # start at 1 to skip the opcode in the instruction
+        for param_num, param_type in enumerate(INSTRUCTIONS[opcode].params, 1):
+            mask *= 10
+            param_mode: ParameterMode = ParameterMode((self.tape[self.ip] // mask) % 10)
+            if param_type == ParameterType.WRITE:
+                arguments.append(self.tape[self.ip + param_num])
+            elif param_mode == ParameterMode.POSITIONAL:
+                position = self.tape[self.ip + param_num]
+                arguments.append(self.tape[position])
+            elif param_mode == ParameterMode.IMMEDIATE:
+                arguments.append(self.tape[self.ip + param_num])
+            else:
+                raise TypeError(f"unknown parameter mode {param_mode}")
+        return (opcode, arguments)
 
-    def execute(self, noun: Optional[int] = None, verb: Optional[int] = None) -> Optional[int]:
+    def execute(self) -> int:
+        """Execute the instructions contained in the VM memory."""
+        while self.ip < len(self.tape):
+            opcode, params = self.decode_instruction()
+            if opcode == 1:
+                self.tape[params[2]] = params[0] + params[1]
+                self.ip += 1 + len(params)
+            elif opcode == 2:
+                self.tape[params[2]] = params[0] * params[1]
+                self.ip += 1 + len(params)
+            elif opcode == 3:
+                self.tape[params[0]] = int(input("input: "))
+                self.last_input = self.tape[params[0]]
+                self.ip += 1 + len(params)
+            elif opcode == 4:
+                self.last_output = params[0]
+                print(self.last_output)
+                self.ip += 1 + len(params)
+            elif opcode == 5:
+                self.ip = params[1] if params[0] else self.ip + 1 + len(params)
+            elif opcode == 6:
+                self.ip = params[1] if not params[0] else self.ip + 1 + len(params)
+            elif opcode == 7:
+                self.tape[params[2]] = 1 if params[0] < params[1] else 0
+                self.ip += 1 + len(params)
+            elif opcode == 8:
+                self.tape[params[2]] = 1 if params[0] == params[1] else 0
+                self.ip += 1 + len(params)
+            elif opcode == 99:
+                return self.tape[0]
+        raise EOFError("reached end of tape without finding halt instruction.")
+
+    def reset(self) -> None:
+        """Reset the VM state before starting a new execution."""
         self.tape = self.program[:]
-        if noun:
-            self.tape[1] = noun
-        if verb:
-            self.tape[2] = verb
         self.ip = 0
 
-        while self.ip < len(self.tape):
-            op, pm1, pm2, pm3 = self.decode(self.tape[self.ip])
-            if op not in self.opcodes.keys():
-                raise ValueError(f"unknown instruction {op} {self.tape[self.ip]}")
-            elif op == 99:
-                return self.tape[0]
-            elif op == 1:
-                a = self.parameter(1, pm1)
-                b = self.parameter(2, pm2)
-                c = self.tape[self.ip + 3]
-                self.tape[c] = a + b
-                self.ip += 1 + self.opcodes[op][1]
-            elif op == 2:
-                a = self.parameter(1, pm1)
-                b = self.parameter(2, pm2)
-                c = self.tape[self.ip + 3]
-                self.tape[c] = a * b
-                self.ip += 1 + self.opcodes[op][1]
-            elif op == 3:
-                c = self.tape[self.ip + 1]
-                self.tape[c] = int(input("input: "))
-                self.last_input = self.tape[c]
-                self.ip += 1 + self.opcodes[op][1]
-            elif op == 4:
-                self.last_output = self.parameter(1, pm1)
-                print(self.last_output)
-                self.ip += 1 + self.opcodes[op][1]
-            elif op == 5:
-                a = self.parameter(1, pm1)
-                b = self.parameter(2, pm2)
-                self.ip = b if a else self.ip + 1 + self.opcodes[op][1]
-            elif op == 6:
-                a = self.parameter(1, pm1)
-                b = self.parameter(2, pm2)
-                self.ip = b if not a else self.ip + 1 + self.opcodes[op][1]
-            elif op == 7:
-                a = self.parameter(1, pm1)
-                b = self.parameter(2, pm2)
-                c = self.tape[self.ip + 3]
-                self.tape[c] = 1 if a < b else 0
-                self.ip += 1 + self.opcodes[op][1]
-            elif op == 8:
-                a = self.parameter(1, pm1)
-                b = self.parameter(2, pm2)
-                c = self.tape[self.ip + 3]
-                self.tape[c] = 1 if a == b else 0
-                self.ip += 1 + self.opcodes[op][1]
-            else:
-                raise ValueError(f"blue moon error for op {op}")
-        return None
-
-    def parameter(self, parameter: int, mode: int) -> int:
-        """Parse an parameter that is in position (0) or immediate (1) mode."""
-        value: int = self.tape[self.ip + parameter]
-        if mode == 0:
-            return self.tape[value]
-        elif mode == 1:
-            return value
-        else:
-            raise ValueError(f"unknown parameter mode {mode}")
+    def set_noun_and_verb(self, noun: int, verb: int) -> None:
+        """Set the noun and verb to initialize the program."""
+        self.tape[1] = noun
+        self.tape[2] = verb

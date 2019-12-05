@@ -12,9 +12,11 @@ VERBOSE: bool = False
 
 def solve(program: List[int]) -> Tuple[Optional[int], Optional[int]]:
     vm: Intcode = Intcode(program)
+    vm.reset()
     vm.execute()
     one: Optional[int] = vm.last_output
 
+    vm.reset()
     vm.execute()
     two: Optional[int] = vm.last_output
     return (one, two)
