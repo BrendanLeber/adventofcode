@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 
 import argparse
@@ -51,10 +51,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
     VERBOSE = args.verbose
 
+    with open(args.input, "rt") as inf:
+        for line in inf:
+            puzzle = line.strip()
+
     try:
-        with open(args.input, "rt") as inf:
-            for line in inf:
-                puzzle = line.strip()
         print(solve(puzzle))
     except Exception:
         traceback.print_exc()

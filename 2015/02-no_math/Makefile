@@ -1,20 +1,31 @@
-CXXFLAGS=-std=c++17 -pedantic -Weverything -Weffc++ -Wno-c++98-compat -Wno-padded -g -O0
-CXX=clang++
+.PHONY: run
+run:  ## run the program using default options
+	python solve.py input.txt
 
-no_math: no_math.cpp
-	$(CXX) $(CXXFLAGS) -o no_math no_math.cpp
 
-run: no_math
-	cat input | ./no_math
+.PHONY: test
+test:  ## exercise functions in the solution using unittest
+	python tests.py --verbose
 
-test: no_math
-	cat test.in | ./no_math
 
-clean:
-	rm no_math
+.PHONY: format
+format:  ## format the source code according to black
+	black --line-length 100 --target-version py37 *.py
+	isort *.py
 
-check: format
-	clang-tidy no_math.cpp -config='' -- $(CXXFLAGS)
 
-format:
-	clang-format -i -style=file no_math.cpp
+.PHONY: lint
+lint:  ## use flake8 to lint the code
+	flake8 *.py
+	mypy *.py
+
+
+.PHONY: pre-commit
+pre-commit: lint format  ## perform pre-commit checks to all code
+
+
+.PHONY: help
+help:  ## display help and options
+	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
+	    sort | \
+	    awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
