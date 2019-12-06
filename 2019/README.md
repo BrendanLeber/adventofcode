@@ -16,3 +16,4 @@ The Elves quickly load you into a spacecraft and prepare to launch.
 - [X] Day  3: [Crossed Wires](03-crossed_wires)
 - [X] Day  4: [Secure Container](04-secure_container)
 - [X] Day  5: [Sunny with a Chance of Asteroids](05-sunny_asteriods)
+- [X] Day  6: [Universal Orbit Map](06-universal_orbit)
