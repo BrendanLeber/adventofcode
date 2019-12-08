@@ -17,4 +17,5 @@ The Elves quickly load you into a spacecraft and prepare to launch.
 - [X] Day  4: [Secure Container](04-secure_container)
 - [X] Day  5: [Sunny with a Chance of Asteroids](05-sunny_asteriods)
 - [X] Day  6: [Universal Orbit Map](06-universal_orbit)
-- [ ] Day  7: [Amplification Circuit](07-amplification)
+- [X] Day  7: [Amplification Circuit](07-amplification)
+- [X] Day  8: [Space Image Format](08-space_image)
