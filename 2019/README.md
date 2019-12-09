@@ -19,3 +19,4 @@ The Elves quickly load you into a spacecraft and prepare to launch.
 - [X] Day  6: [Universal Orbit Map](06-universal_orbit)
 - [X] Day  7: [Amplification Circuit](07-amplification)
 - [X] Day  8: [Space Image Format](08-space_image)
+- [X] Day  9: [Sensor Boost](09-sensor_boost)
