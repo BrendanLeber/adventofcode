@@ -21,3 +21,4 @@ The Elves quickly load you into a spacecraft and prepare to launch.
 - [X] Day  8: [Space Image Format](08-space_image)
 - [X] Day  9: [Sensor Boost](09-sensor_boost)
 - [X] Day 10: [Monitoring Station](10-monitoring_station)
+- [X] Day 11: [Space Police](11-space_police)
