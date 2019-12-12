@@ -60,14 +60,13 @@ class Rectangle:
         self.right += rhs.right
         self.bottom += rhs.bottom
 
-    @staticmethod
-    def intersect(lhs, rhs):
+    def intersect(self, other):
         """Create a rectangle equal to the intersection of the given rectangles."""
         return Rectangle(
-            max(lhs.left, rhs.left),
-            max(lhs.top, rhs.top),
-            min(lhs.right, rhs.right),
-            min(lhs.bottom, rhs.bottom),
+            max(self.left, other.left),
+            max(self.top, other.top),
+            min(self.right, other.right),
+            min(self.bottom, other.bottom),
         )
 
     def is_empty(self) -> bool:
@@ -168,17 +167,19 @@ class Rectangle:
         """Get a Size object representing the width and height of the rectangle."""
         return Size(self.width(), self.height())
 
-    # @staticmethod
     # def subtract_rect(lhs, rhs):
-    #     '''Create a rectangle with dimensions equal to the subtraction of lhs from rhs.'''
-    #     return Rect()
+    #     """Create a rectangle with dimensions equal to the subtraction of lhs from rhs."""
+    #     return Rectangle()
 
-    @staticmethod
-    def union(lhs, rhs):
+    def top_left(self) -> Point:
+        """Return the top-left point of the rectangle."""
+        return Point(self.left, self.top)
+
+    def union(self, other):
         """Make a rectangle that is a union of the two given rectangles."""
         return Rectangle(
-            min(lhs.left, rhs.left),
-            min(lhs.top, rhs.top),
-            max(lhs.right, rhs.right),
-            max(lhs.bottom, rhs.bottom),
+            min(self.left, other.left),
+            min(self.top, other.top),
+            max(self.right, other.right),
+            max(self.bottom, other.bottom),
         )

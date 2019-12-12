@@ -22,3 +22,4 @@ The Elves quickly load you into a spacecraft and prepare to launch.
 - [X] Day  9: [Sensor Boost](09-sensor_boost)
 - [X] Day 10: [Monitoring Station](10-monitoring_station)
 - [X] Day 11: [Space Police](11-space_police)
+- [ ] Day 12: [The N-Body Problem](12-n-body_problem)
