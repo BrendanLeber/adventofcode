@@ -4,6 +4,7 @@ import argparse
 import pdb
 import traceback
 from dataclasses import dataclass
+from itertools import permutations
 from typing import List, Set
 
 
@@ -73,11 +74,8 @@ class Moon:
 
 
 def apply_gravity(moons: List[Moon]) -> None:
-    for left in moons:
-        for right in moons:
-            if left is right:
-                continue
-            left.apply_gravity(right)
+    for left, right in permutations(moons, 2):
+        left.apply_gravity(right)
 
 
 def apply_velocity(moons: List[Moon]) -> None:
@@ -132,7 +130,8 @@ def solve(moons: List[Moon], trace: int) -> int:
         if not cycles[2] and all([m.vel.z == 0 for m in moons]):
             cycles[2] = step
 
-    print_step(step, moons)
+    if trace:
+        print_step(step, moons)
 
     return lcm(cycles) * 2
 
