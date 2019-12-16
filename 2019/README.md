@@ -24,3 +24,6 @@ The Elves quickly load you into a spacecraft and prepare to launch.
 - [X] Day 11: [Space Police](11-space_police)
 - [X] Day 12: [The N-Body Problem](12-n-body_problem)
 - [X] Day 13: [Care Package](13-care_package)
+- [ ] Day 14: [Space Stoichiometry](14-space_stoichiometry)
+- [ ] Day 15: [Oxygen System](15-oxygen_system)
+- [ ] Day 16: [Flawed Frequency Transmission](16-flawed_frequency)
