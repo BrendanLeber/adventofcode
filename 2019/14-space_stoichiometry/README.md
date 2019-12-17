@@ -10,11 +10,11 @@ your ship's Inter-Stellar Refinery Union brand *nanofactory* can turn these raw
 materials into fuel.
 
 You ask the nanofactory to produce a list of the *reactions* it can perform
-that are relevant to this process (your puzzle input). Every reaction turns
+that are relevant to this process (your puzzle input).  Every reaction turns
 some quantities of specific *input chemicals* into some quantity of an *output
-chemical*.  Almost every chemical is produced by exactly one reaction; the only
-exception, `ORE`, is the raw material input to the entire process and is not
-produced by a reaction.
+chemical*.  Almost every *chemical* is produced by exactly one reaction; the
+only exception, `ORE`, is the raw material input to the entire process and is
+not produced by a reaction.
 
 You just need to know how much *`ORE`* you'll need to collect before you can
 produce one unit of *`FUEL`*.
@@ -59,7 +59,7 @@ Or, suppose you have the following list of reactions:
 2 AB, 3 BC, 4 CA => 1 FUEL
 ```
 
-The above list of reactions requires 165 `ORE` to produce 1 `FUEL`:
+The above list of reactions requires *165* `ORE` to produce 1 `FUEL`:
 
 - Consume 45 `ORE` to produce 10 `A`.
 - Consume 64 `ORE` to produce 24 `B`.
@@ -124,5 +124,18 @@ Here are some larger examples:
 5 BHXH, 4 VRPVC => 5 LTCX
 ```
 
-Given the list of reactions in your puzzle input, *what is the minimum amount of
-`ORE` required to produce exactly 1 `FUEL`?*
+Given the list of reactions in your puzzle input, what is the *minimum amount
+of `ORE` required to produce exactly 1 `FUEL`?*
+
+### Part Two
+
+After collecting `ORE` for a while, you check your cargo hold: *1 trillion
+(1000000000000)* units of `ORE`.
+
+With that much ore, given the examples above:
+
+- The 13312 `ORE-per-FUEL` example could produce *82892753* `FUEL`.
+- The 180697 `ORE-per-FUEL` example could produce *5586022* `FUEL`.
+- The 2210736 `ORE-per-FUEL` example could produce *460664* `FUEL`.
+
+Given 1 trillion `ORE`, *what is the maximum amount of `FUEL` you can produce?*
