@@ -27,3 +27,4 @@ The Elves quickly load you into a spacecraft and prepare to launch.
 - [X] Day 14: [Space Stoichiometry](14-space_stoichiometry)
 - [ ] Day 15: [Oxygen System](15-oxygen_system)
 - [ ] Day 16: [Flawed Frequency Transmission](16-flawed_frequency)
+- [ ] Day 17: [Set and Forget](17-set_and_forget)
