@@ -30,3 +30,4 @@ The Elves quickly load you into a spacecraft and prepare to launch.
 - [ ] Day 17: [Set and Forget](17-set_and_forget)
 - [ ] Day 18: [Many-Worlds Interpretation](18-many-worlds)
 - [ ] Day 19: [Tractor Beam](19-tractor_beam)
+- [ ] Day 20: [Donut Maze](20-donut_maze)
