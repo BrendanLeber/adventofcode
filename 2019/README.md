@@ -31,3 +31,6 @@ The Elves quickly load you into a spacecraft and prepare to launch.
 - [ ] Day 18: [Many-Worlds Interpretation](18-many-worlds)
 - [ ] Day 19: [Tractor Beam](19-tractor_beam)
 - [ ] Day 20: [Donut Maze](20-donut_maze)
+- [ ] Day 21: [Springdroid Adventure](21-springdroid)
+- [ ] Day 22: [Slam Shuffle](22-slam_shuffle)
+- [ ] Day 23: [Category Six](23-category_six)
