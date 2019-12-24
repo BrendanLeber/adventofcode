@@ -34,3 +34,4 @@ The Elves quickly load you into a spacecraft and prepare to launch.
 - [ ] Day 21: [Springdroid Adventure](21-springdroid)
 - [ ] Day 22: [Slam Shuffle](22-slam_shuffle)
 - [ ] Day 23: [Category Six](23-category_six)
+- [ ] Day 24: [Planet of Discord](24-planet_discord)
