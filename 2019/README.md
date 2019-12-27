@@ -35,3 +35,4 @@ The Elves quickly load you into a spacecraft and prepare to launch.
 - [ ] Day 22: [Slam Shuffle](22-slam_shuffle)
 - [ ] Day 23: [Category Six](23-category_six)
 - [ ] Day 24: [Planet of Discord](24-planet_discord)
+- [ ] Day 25: [Cryostasis](25-cryostasis)
