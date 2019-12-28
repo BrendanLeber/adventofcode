@@ -1,0 +1,39 @@
+.PHONY: solve
+solve:  ## solve the problem using the default input
+	python solve.py 59738571488265718089358904960114455280973585922664604231570733151978336391124265667937788506879073944958411270241510791284757734034790319100185375919394328222644897570527214451044757312242600574353568346245764353769293536616467729923693209336874623429206418395498129094105619169880166958902855461622600841062466017030859476352821921910265996487329020467621714808665711053916709619048510429655689461607438170767108694118419011350540476627272614676919542728299869247813713586665464823624393342098676116916475052995741277706794475619032833146441996338192744444491539626122725710939892200153464936225009531836069741189390642278774113797883240104687033645
+
+
+.PHONY: tests
+tests:  ## run the tests for the solution functions
+	python tests.py --verbose
+
+
+.PHONY: format
+format:  ## format the source code according to black
+	black --line-length 100 --target-version py37 *.py
+	isort *.py
+
+
+.PHONY: lint
+lint:  ## use flake8 to lint the code
+	flake8 *.py
+	mypy *.py
+
+
+.PHONY: pre-commit
+pre-commit: lint format  ## perform pre-commit checks to all code
+
+
+.PHONY: clean
+clean:  ## remove generated files from the directory
+	-rm -rf __pycache__
+	-rm -rf .mypy_cache
+	-rm .coverage
+	-rm -rf htmlcov
+
+
+.PHONY: help
+help:  ## display help and options
+	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
+	    sort | \
+	    awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
