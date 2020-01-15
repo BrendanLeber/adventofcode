@@ -46,6 +46,7 @@ class Intcode:
         self.last_output: Optional[int] = None
         self.last_input: Optional[int] = None
         self.chained_mode: bool = chained_mode
+        self.silent_mode: bool = False
         self.inputs: Deque = deque()
 
     def _disasm(self) -> str:
@@ -109,7 +110,7 @@ class Intcode:
                 self.tape[params[2]] = params[0] * params[1]
                 self.ip += 1 + len(params)
             elif opcode == 3:
-                if self.chained_mode and self.inputs:
+                if self.chained_mode or self.inputs:
                     value = self.inputs.popleft()
                 else:
                     value = int(input("$ "))
@@ -120,7 +121,7 @@ class Intcode:
                 self.ip += 1 + len(params)
                 if self.chained_mode:
                     return True
-                else:
+                elif not self.silent_mode:
                     print(self.last_output)
             elif opcode == 5:
                 self.ip = params[1] if params[0] else self.ip + 1 + len(params)
