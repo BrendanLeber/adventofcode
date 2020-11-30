@@ -27,4 +27,5 @@ first.  Each puzzle grants **one star**.  Good luck!
 - [X] Day 16: [Dragon Checksum](16-dragon_checksum)
 - [X] Day 17: [Two Steps Forward](17-two_steps)
 - [X] Day 18: [Like a Rogue](18-like_a_rogue)
-- [ ] Day 19: [An Elephant Named Joseph](19-an-elephant_named_joseph)
+- [X] Day 19: [An Elephant Named Joseph](19-an-elephant_named_joseph)
+- [ ] Day 20: [Firewall Rules](20-firewall_rules)
