@@ -1,9 +1,10 @@
 # Advent of Code
 
-My solutions to the various [Avent of Code](https://adventofcode.com/) problems.
+My solutions to the various [Advent of Code](https://adventofcode.com/) problems.
 
 ## Events
 
+- [2020](2020)
 - [2019](2019)
 - [2018](2018)
 - [2017](2017)

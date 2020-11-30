@@ -24,8 +24,8 @@ Fixed walls are marked with `#`, and doors are marked with `-` or `|`.
 
 The doors in your *current room* are either open or closed (and locked) based
 on the hexadecimal [MD5][1] hash of a passcode (your puzzle input) followed by
-a sequence of uppercase characters representing the *path you have taken so
-far* (`U` for up, `D` for down, `L` for left, and `R` for right).
+a sequence of uppercase characters representing the *path you have taken so far*
+(`U` for up, `D` for down, `L` for left, and `R` for right).
 
 [1]: https://en.wikipedia.org/wiki/MD5
 
@@ -65,5 +65,20 @@ vault if you know the right path.  For example:
 
 Given your vault's passcode, *what is the shortest path* (the actual path, not
 just the length) to reach the vault?
+
+### Part Two
+
+You're curious how robust this security solution really is, and so you decide
+to find longer and longer paths which still provide access to the vault.  You
+remember that paths always end the first time they reach the bottom-right
+room (that is, they can never pass through it, only end in it).
+
+For example:
+
+- If your passcode were `ihgpwlah`, the longest path would take `370` steps.
+- With `kglvqrro`, the longest path would be `492` steps long.
+- With `ulqzkmiv`, the longest path would be `830` steps long.
+
+What is the *length of the longest path* that reaches the vault?
 
 Your puzzle input is *`hhhxzeay`*.

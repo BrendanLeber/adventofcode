@@ -25,4 +25,6 @@ first.  Each puzzle grants **one star**.  Good luck!
 - [X] Day 14: [One-Time Pad](14-one_time)
 - [X] Day 15: [Timing is Everything](15-timing)
 - [X] Day 16: [Dragon Checksum](16-dragon_checksum)
-- [ ] Day 17: [Two Steps Forward](17-two_steps)
+- [X] Day 17: [Two Steps Forward](17-two_steps)
+- [X] Day 18: [Like a Rogue](18-like_a_rogue)
+- [ ] Day 19: [An Elephant Named Joseph](19-an-elephant_named_joseph)
