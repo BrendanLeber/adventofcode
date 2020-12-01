@@ -5,7 +5,7 @@ import pdb
 import traceback
 from typing import List, Optional, Tuple
 
-from intcode import Intcode
+from library.intcode import Intcode
 
 VERBOSE: bool = False
 
