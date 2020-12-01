@@ -4,14 +4,15 @@ import argparse
 import pdb
 import traceback
 from itertools import combinations
-from typing import List, Tuple
 from math import prod
+from typing import List, Tuple
 
 
-def find_matching_sum(values: List[int], goal: int, k: int) -> List[int]:
+def find_matching_sum(values: List[int], goal: int, k: int) -> Tuple[int, ...]:
     for trie in combinations(values, k):
         if sum(trie) == goal:
             return trie
+    return ()
 
 
 def solve(expenses: List[int], goal: int) -> Tuple[int, int]:
