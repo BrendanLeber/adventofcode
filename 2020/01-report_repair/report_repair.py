@@ -5,20 +5,18 @@ import pdb
 import traceback
 from itertools import combinations
 from typing import List, Tuple
+from math import prod
+
+
+def find_matching_sum(values: List[int], goal: int, k: int) -> List[int]:
+    for trie in combinations(values, k):
+        if sum(trie) == goal:
+            return trie
 
 
 def solve(expenses: List[int], goal: int) -> Tuple[int, int]:
-    one: int = None
-    for (lhs, rhs) in combinations(expenses, 2):
-        if (lhs + rhs) == goal:
-            one = lhs * rhs
-            break
-
-    two: int = None
-    for (x, y, z) in combinations(expenses, 3):
-        if (x + y + z) == goal:
-            two = x * y * z
-
+    one: int = prod(find_matching_sum(expenses, goal, 2))
+    two: int = prod(find_matching_sum(expenses, goal, 3))
     return (one, two)
 
 

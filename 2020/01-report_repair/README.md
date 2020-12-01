@@ -43,6 +43,10 @@ Using the above example again, the three entries that sum to `2020` are `979`,
 
 In your expense report, *what is the product of the three entries that sum to `2020`?*
 
+Your puzzle answer was `248607374`.
+
+**Both parts of this puzzle are complete! They provide two gold stars:** **
+
 Although it hasn't changed, you can still [get your puzzle input][2].
 
 [2]: https://adventofcode.com/2020/day/1/input
