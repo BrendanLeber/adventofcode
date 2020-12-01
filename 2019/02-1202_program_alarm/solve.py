@@ -5,7 +5,7 @@ import pdb
 import traceback
 from typing import List, Optional, Tuple
 
-from intcode import Intcode
+from library.intcode import Intcode
 
 VERBOSE: bool = False
 
@@ -14,7 +14,8 @@ def solve(program: List[int]) -> Tuple[Optional[int], Optional[int]]:
     vm: Intcode = Intcode(program)
     vm.reset()
     vm.set_noun_and_verb(12, 2)
-    one: Optional[int] = vm.execute()
+    vm.execute()
+    one: int = vm.tape[0]
 
     for noun in range(100):
         for verb in range(100):
@@ -22,7 +23,8 @@ def solve(program: List[int]) -> Tuple[Optional[int], Optional[int]]:
                 print(f"Testing noun {noun} and verb {verb}.")
             vm.reset()
             vm.set_noun_and_verb(noun, verb)
-            output: Optional[int] = vm.execute()
+            vm.execute()
+            output: int = vm.tape[0]
             if output == 19690720:
                 two: Optional[int] = 100 * noun + verb
                 return (one, two)
