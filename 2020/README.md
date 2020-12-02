@@ -19,7 +19,7 @@ day in the Advent calendar; the second puzzle is unlocked when you complete
 the first. Each puzzle grants **one star**. Good luck!
 
 - [X] Day  1: [Report Repair](01-report_repair)
-- [ ] Day  2:
+- [X] Day  2: [Password Philosophy](02-password_philosophy)
 - [ ] Day  3:
 - [ ] Day  4:
 - [ ] Day  5:
