@@ -20,7 +20,7 @@ the first. Each puzzle grants **one star**. Good luck!
 
 - [X] Day  1: [Report Repair](01-report_repair)
 - [X] Day  2: [Password Philosophy](02-password_philosophy)
-- [ ] Day  3:
+- [X] Day  3: [Toboggan Trajectory](03-toboggan_trajectory)
 - [ ] Day  4:
 - [ ] Day  5:
 - [ ] Day  6:
