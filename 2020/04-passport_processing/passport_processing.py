@@ -31,7 +31,7 @@ def parse_input(fname: str) -> List[Dict[str, str]]:
     return data
 
 
-def is_valid(passport: Dict[str, str]) -> bool:
+def has_all_required_keys(passport: Dict[str, str]) -> bool:
     """Return true if the given passport contains all of the required keys."""
     for required in REQUIRED_KEYS:
         if required not in passport.keys():
@@ -42,7 +42,7 @@ def is_valid(passport: Dict[str, str]) -> bool:
 def one(passports: List[Dict[str, str]]) -> int:
     valid: int = 0
     for passport in passports:
-        if is_valid(passport):
+        if has_all_required_keys(passport):
             valid += 1
     return valid
 
@@ -52,25 +52,25 @@ def two(passports: List[Dict[str, str]]) -> int:
     pid_re = re.compile("^[0-9]{9}$")
     valid: int = 0
     for passport in passports:
-        if not is_valid(passport):
+        if not has_all_required_keys(passport):
             continue
 
-        if not 1920 <= int(passport["byr"]) <= 2002:
+        if not "1920" <= passport["byr"] <= "2002":
             continue
 
-        if not 2010 <= int(passport["iyr"]) <= 2020:
+        if not "2010" <= passport["iyr"] <= "2020":
             continue
 
-        if not 2020 <= int(passport["eyr"]) <= 2030:
+        if not "2020" <= passport["eyr"] <= "2030":
             continue
 
         if passport["hgt"][-2:] not in ("cm", "in"):
             continue
         if passport["hgt"][-2:] == "cm":
-            if not 150 <= int(passport["hgt"][:-2]) <= 193:
+            if not "150" <= passport["hgt"][:-2] <= "193":
                 continue
         else:
-            if not 59 <= int(passport["hgt"][:-2]) <= 76:
+            if not "59" <= passport["hgt"][:-2] <= "76":
                 continue
 
         if not hcl_re.match(passport["hcl"]):
