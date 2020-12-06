@@ -23,7 +23,7 @@ the first. Each puzzle grants **one star**. Good luck!
 - [X] Day  3: [Toboggan Trajectory](03-toboggan_trajectory)
 - [X] Day  4: [Passport Processing](04-passport_processing)
 - [X] Day  5: [Binary Boarding](05-binary_boarding)
-- [ ] Day  6:
+- [X] Day  6: [Custom Customs](06-custom_customs)
 - [ ] Day  7:
 - [ ] Day  8:
 - [ ] Day  9:
