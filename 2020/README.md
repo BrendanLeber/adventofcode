@@ -24,7 +24,7 @@ the first. Each puzzle grants **one star**. Good luck!
 - [X] Day  4: [Passport Processing](04-passport_processing)
 - [X] Day  5: [Binary Boarding](05-binary_boarding)
 - [X] Day  6: [Custom Customs](06-custom_customs)
-- [ ] Day  7:
+- [X] Day  7: [Handy Haversacks](07-handy_haversacks)
 - [ ] Day  8:
 - [ ] Day  9:
 - [ ] Day 10:
