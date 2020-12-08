@@ -25,7 +25,7 @@ the first. Each puzzle grants **one star**. Good luck!
 - [X] Day  5: [Binary Boarding](05-binary_boarding)
 - [X] Day  6: [Custom Customs](06-custom_customs)
 - [X] Day  7: [Handy Haversacks](07-handy_haversacks)
-- [ ] Day  8:
+- [X] Day  8: [Handheld Halting](08-handheld_halting)
 - [ ] Day  9:
 - [ ] Day 10:
 - [ ] Day 11:
