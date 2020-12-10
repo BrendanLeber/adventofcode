@@ -26,8 +26,8 @@ the first. Each puzzle grants **one star**. Good luck!
 - [X] Day  6: [Custom Customs](06-custom_customs)
 - [X] Day  7: [Handy Haversacks](07-handy_haversacks)
 - [X] Day  8: [Handheld Halting](08-handheld_halting)
-- [ ] Day  9: [Encoding Error](09-encoding_error)
-- [ ] Day 10:
+- [X] Day  9: [Encoding Error](09-encoding_error)
+- [X] Day 10: [Adapter Array](10-adapter_array)
 - [ ] Day 11:
 - [ ] Day 12:
 - [ ] Day 13:
