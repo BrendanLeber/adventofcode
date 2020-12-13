@@ -28,7 +28,7 @@ the first. Each puzzle grants **one star**. Good luck!
 - [X] Day  8: [Handheld Halting](08-handheld_halting)
 - [X] Day  9: [Encoding Error](09-encoding_error)
 - [X] Day 10: [Adapter Array](10-adapter_array)
-- [ ] Day 11:
+- [X] Day 11: [Seating System](11-seating_system)
 - [ ] Day 12:
 - [ ] Day 13:
 - [ ] Day 14:
