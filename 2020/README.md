@@ -29,7 +29,7 @@ the first. Each puzzle grants **one star**. Good luck!
 - [X] Day  9: [Encoding Error](09-encoding_error)
 - [X] Day 10: [Adapter Array](10-adapter_array)
 - [X] Day 11: [Seating System](11-seating_system)
-- [ ] Day 12:
+- [X] Day 12: [Rain Risk](12-rain_risk)
 - [ ] Day 13:
 - [ ] Day 14:
 - [ ] Day 15:
