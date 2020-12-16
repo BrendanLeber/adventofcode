@@ -31,7 +31,7 @@ the first. Each puzzle grants **one star**. Good luck!
 - [X] Day 11: [Seating System](11-seating_system)
 - [X] Day 12: [Rain Risk](12-rain_risk)
 - [X] Day 13: [Shuttle Search](13-shuttle_search)
-- [ ] Day 14:
+- [X] Day 14: [Docking Data](14-docking_data)
 - [ ] Day 15:
 - [ ] Day 16:
 - [ ] Day 17:
