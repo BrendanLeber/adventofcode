@@ -32,7 +32,7 @@ the first. Each puzzle grants **one star**. Good luck!
 - [X] Day 12: [Rain Risk](12-rain_risk)
 - [X] Day 13: [Shuttle Search](13-shuttle_search)
 - [X] Day 14: [Docking Data](14-docking_data)
-- [ ] Day 15:
+- [X] Day 15: [Rambunctious Recitation](15-rambunctious_recitation)
 - [ ] Day 16:
 - [ ] Day 17:
 - [ ] Day 18:
