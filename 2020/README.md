@@ -33,7 +33,7 @@ the first. Each puzzle grants **one star**. Good luck!
 - [X] Day 13: [Shuttle Search](13-shuttle_search)
 - [X] Day 14: [Docking Data](14-docking_data)
 - [X] Day 15: [Rambunctious Recitation](15-rambunctious_recitation)
-- [ ] Day 16:
+- [X] Day 16: [Ticket Translation](16-ticket_translation)
 - [ ] Day 17:
 - [ ] Day 18:
 - [ ] Day 19:
