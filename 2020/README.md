@@ -34,7 +34,7 @@ the first. Each puzzle grants **one star**. Good luck!
 - [X] Day 14: [Docking Data](14-docking_data)
 - [X] Day 15: [Rambunctious Recitation](15-rambunctious_recitation)
 - [X] Day 16: [Ticket Translation](16-ticket_translation)
-- [ ] Day 17:
+- [X] Day 17: [Conway Cubes](17-conway_cubes)
 - [ ] Day 18:
 - [ ] Day 19:
 - [ ] Day 20:
