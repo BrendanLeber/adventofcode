@@ -4,7 +4,7 @@ My solutions to the various [Advent of Code](https://adventofcode.com/) problems
 
 ## Events
 
-- [2020](2020) 34 / 50 (70.0%)
+- [2020](2020) 36 / 50 (72.0%)
 - [2019](2019) 33 / 50 (66.0%)
 - [2018](2018) 20 / 50 (40.0%)
 - [2017](2017) 24 / 50 (48.0%)

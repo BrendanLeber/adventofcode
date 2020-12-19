@@ -35,7 +35,7 @@ the first. Each puzzle grants **one star**. Good luck!
 - [X] Day 15: [Rambunctious Recitation](15-rambunctious_recitation)
 - [X] Day 16: [Ticket Translation](16-ticket_translation)
 - [X] Day 17: [Conway Cubes](17-conway_cubes)
-- [ ] Day 18:
+- [X] Day 18: [Operation Order](18-operation_order)
 - [ ] Day 19:
 - [ ] Day 20:
 - [ ] Day 21:
