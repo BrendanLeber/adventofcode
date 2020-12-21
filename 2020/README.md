@@ -36,7 +36,7 @@ the first. Each puzzle grants **one star**. Good luck!
 - [X] Day 16: [Ticket Translation](16-ticket_translation)
 - [X] Day 17: [Conway Cubes](17-conway_cubes)
 - [X] Day 18: [Operation Order](18-operation_order)
-- [ ] Day 19:
+- [X] Day 19: [Monster Messages](19-monster_messages)
 - [ ] Day 20:
 - [ ] Day 21:
 - [ ] Day 22:
