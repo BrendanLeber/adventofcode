@@ -1,0 +1,26 @@
+* Advent of Code 2017 [12/25] [48%]
+** [X] Day 1: [[01-inverse_captcha][Inverse Captcha]]
+** [X] Day 2: [[02-corruption_checksum][Corruption Checksum]]
+** [X] Day 3: [[03-spiral_memory][Spiral Memory]]
+** [X] Day 4: [[04-high-entropy_passphrases][High-Entropy Passphrases]]
+** [X] Day 5: [[05-a_maze][A Maze of Twisty Trampolines, All Alike]]
+** [X] Day 6: [[06-memory_reallocation][Memory Reallocation]]
+** [X] Day 7: [[07-recursive_circus][Recursive Circus]]
+** [X] Day 8: [[08-i_heard_you_like_registers][I Heard You Like Registers]]
+** [X] Day 9: [[09-stream_processing][Stream Processing]]
+** [X] Day 10: [[10-knot_hash][Knot Hash]]
+** [X] Day 11: [[11-hex_ed][Hex Ed]]
+** [X] Day 12: [[12-digital_plumber][Digital Plumber]]
+** [ ] Day 13: [[13-packet_scanners][Packet Scanners]]
+** [ ] Day 14:
+** [ ] Day 15:
+** [ ] Day 16:
+** [ ] Day 17:
+** [ ] Day 18:
+** [ ] Day 19:
+** [ ] Day 20:
+** [ ] Day 21:
+** [ ] Day 22:
+** [ ] Day 23:
+** [ ] Day 24:
+** [ ] Day 25:

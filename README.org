@@ -1,0 +1,31 @@
+#+MACRO: cc_shield [[code-of-conduct.md][file:https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg]]
+
+* Advent of Code
+
+My solutions to the various [[https://adventofcode.com/][Advent of Code]] problems.
+
+** Events
+
+- [[2015][2015]] 50 / 50 (100%)
+- [[2016][2016]] 41 / 50 (82%)
+- [[2017][2017]] 24 / 50 (48%)
+- [[2018][2018]] 20 / 50 (40%)
+- [[2019][2019]] 33 / 50 (66%)
+- [[2020][2020]] 38 / 50 (76%)
+
+Total stars: 184 / 300 (61.33%)
+
+** Code of Conduct
+
+#+CAPTION:: Contributor Covenant
+{{{cc_shield}}}
+
+I am dedicated to building a welcoming, diverse, safe community.  I expect everyone participating in this community to abide by the [[code-of-conduct.md][Code of Conduct]].  Please read it.  Please follow it.  In this community, we work hard to build each other up and create amazing things together.
+
+** Author
+
+- [[https://github.com/BrendanLeber][Brendan Leber]]
+
+** License
+
+This project is licensed under the MIT License - see the [[LICENSE][LICENSE]] file for details.
